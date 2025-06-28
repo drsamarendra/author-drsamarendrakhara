@@ -231,11 +231,6 @@
   list-style: disc;
 }
 
-/* @media (max-width: 991.98px) {
-  .product-img-2 { height: 120px; }
-  .list-book-img { width: 80px; height: 100px; }
-  .product-card-2 { margin-bottom: 1rem; }
-} */
 .product-banner {
   min-height: 80px;
   background: linear-gradient(90deg, #e3f0ff 60%, #f8fbff 100%);
