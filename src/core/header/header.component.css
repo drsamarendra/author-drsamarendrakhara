@@ -81,3 +81,31 @@
   top: 0;
   z-index: 99;
 }
+
+@media (max-width: 991.98px) {
+  .navbar-brand {
+    font-size: 1.1rem !important;
+  }
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.7rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-custom {
+    position: fixed;
+  }
+  .navbar-brand {
+    font-size: 1rem !important;
+  }
+  .navbar-nav .nav-link {
+    font-size: 0.98rem;
+    padding: 0.5rem 0.5rem;
+  }
+  .topbar .container {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start !important;
+  }
+}

@@ -39,7 +39,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isCollapsed = window.scrollY > 80;
+    // Use window.pageYOffset for better mobile compatibility
+    const scrollY = window.scrollY !== undefined ? window.scrollY : window.pageYOffset;
+    this.isCollapsed = scrollY > 80;
   }
 
   setActiveNav(nav: string, event: Event) {

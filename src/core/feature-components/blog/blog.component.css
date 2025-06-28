@@ -54,7 +54,12 @@
   box-shadow: 0 4px 16px 0 rgba(0,123,255,0.18);
   border: none;
 }
-@media (max-width: 767px) {
-  .blog-img { height: 160px; }
+@media (max-width: 991.98px) {
+  .blog-img { height: 140px; }
   .card-title { font-size: 1.1rem; }
+}
+@media (max-width: 767.98px) {
+  .blog-img { height: 100px; }
+  .card-title { font-size: 1rem; }
+  .blog-card { border-radius: 0.7rem; }
 }

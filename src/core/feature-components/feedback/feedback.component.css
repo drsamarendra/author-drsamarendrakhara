@@ -118,4 +118,16 @@
     margin: 0 8px;
     padding: 1.2rem 0.7rem 1.2rem 0.7rem;
   }
+}
+@media (max-width: 767.98px) {
+  .feedback-section-title {
+    font-size: 1.2rem;
+  }
+  .feedback-card {
+    width: 98vw;
+    min-width: 160px;
+    max-width: 99vw;
+    padding: 0.8rem 0.3rem 0.8rem 0.3rem;
+    margin: 0 2px;
+  }
 } */
