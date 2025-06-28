@@ -1,0 +1,83 @@
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 1020;
+}
+
+.navbar-brand {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0d6efd !important;
+}
+
+.navbar-nav .nav-link {
+  color: #222 !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:hover {
+  color: #0d6efd !important;
+}
+
+.navbar-nav .dropdown-menu {
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  min-width: 180px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.navbar-nav .dropdown-item {
+  padding: 0.5rem 1.25rem;
+  transition: background 0.2s;
+}
+
+.navbar-nav .dropdown-item:hover,
+.navbar-nav .dropdown-item:focus {
+  background: #f1f7ff;
+  color: #0d6efd;
+}
+
+.header-wrapper.header-collapsed .topbar {
+  display: none !important;
+}
+
+.header-wrapper.header-collapsed .navbar {
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+  min-height: 48px !important;
+  transition: padding 0.2s, min-height 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.header-wrapper.header-collapsed .navbar-brand span,
+.header-wrapper.header-collapsed .navbar-brand {
+  font-size: 1.1rem !important;
+  transition: font-size 0.2s;
+}
+
+.header-wrapper.header-collapsed .navbar .navbar-brand .bi-plus-circle-fill {
+  font-size: 1.3rem !important;
+}
+
+.header-wrapper.header-collapsed .navbar .navbar-brand .me-2 {
+  margin-right: 0.5rem !important;
+}
+
+.header-wrapper.header-collapsed .navbar .nav-link {
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+  font-size: 0.97rem !important;
+}
+
+.navbar-custom {
+  background-color: #f1f1f1;
+  transition: 0.4s;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}

@@ -1,0 +1,121 @@
+/* Feedback Section Styles
+.feedback-section-bg {
+  background: linear-gradient(135deg, #f8fafc 80%, #e7f1ff 100%);
+  padding-bottom: 2.5rem;
+  padding-top: 1.5rem;
+}
+.feedback-section-title {
+  color: #0d6efd;
+  letter-spacing: 0.5px;
+  font-size: 2rem;
+}
+.feedback-scroll-row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #0d6efd #e7f1ff;
+  background: transparent;
+  justify-content: center;
+}
+.feedback-scroll-row::-webkit-scrollbar {
+  height: 8px;
+}
+.feedback-scroll-row::-webkit-scrollbar-thumb {
+  background: #0d6efd;
+  border-radius: 4px;
+}
+.feedback-scroll-row::-webkit-scrollbar-track {
+  background: #e7f1ff;
+}
+.feedback-card {
+  width: 320px;
+  min-width: 260px;
+  max-width: 340px;
+  min-height: 210px;
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0 8px 32px 0 rgba(13,110,253,0.12), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+  margin: 0 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  transition: box-shadow 0.3s, transform 0.3s;
+  background-clip: padding-box;
+  position: relative;
+}
+.feedback-card:hover {
+  box-shadow: 0 16px 48px 0 rgba(13,110,253,0.18), 0 2px 8px 0 rgba(0,0,0,0.13);
+  transform: translateY(-8px) scale(1.04);
+}
+.feedback-card-body {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.feedback-badge {
+  font-size: 1.3rem;
+  background: linear-gradient(135deg,#0d6efd 60%,#6ea8fe 100%);
+  color: #fff;
+  border: 2px solid #fff;
+  z-index: 2;
+  box-shadow: 0 2px 8px #0d6efd33;
+  padding: 0.2em 0.5em;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  margin-top: -1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.feedback-card:hover .feedback-badge {
+  background: linear-gradient(135deg,#198754 60%,#43e97b 100%);
+}
+.feedback-comment {
+  color: #333;
+  font-size: 1.08rem;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  min-height: 60px;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.7rem 0.5rem 0.7rem;
+  box-shadow: 0 2px 8px 0 rgba(13,110,253,0.04);
+}
+.feedback-name {
+  font-size: 1.08rem;
+  color: #0d6efd;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.2px;
+}
+.feedback-stars {
+  margin-bottom: 0.2rem;
+}
+.feedback-star {
+  font-size: 1.1rem;
+  color: #ffc107;
+  margin-right: 2px;
+  filter: drop-shadow(0 1px 2px #ffc10755);
+}
+@media (max-width: 991.98px) {
+  .feedback-card {
+    width: 95vw;
+    min-width: 220px;
+    max-width: 98vw;
+    margin: 0 8px;
+    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+  }
+} */

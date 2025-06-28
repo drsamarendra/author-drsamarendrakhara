@@ -1,0 +1,12 @@
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnim 0.7s forwards;
+}
+
+@keyframes fadeInAnim {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ...existing code... */

@@ -1,0 +1,47 @@
+<div class="container-fluid px-0 feedback-section-bg">
+  <h2 class="text-center mb-5 fw-bold feedback-section-title">
+    <i class="bi bi-chat-quote-fill me-2 text-success"></i>
+    What My Patients Say About My Medical Treatments
+  </h2>
+  <div id="feedbackCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-inner">
+      <ng-container *ngFor="let group of feedbackList | slice:0; let i = index">
+        <div class="carousel-item" [class.active]="i === 0" *ngIf="getFeedbackGroup(i).length">
+          <div class="d-flex justify-content-center align-items-stretch flex-nowrap">
+            <ng-container *ngFor="let feedback of getFeedbackGroup(i)">
+              <div class="feedback-card">
+                <div class="feedback-card-body">
+                  <div class="feedback-badge mb-2">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+                  <div class="feedback-comment">
+                    <i class="bi bi-quote text-primary"></i>
+                    <span class="ms-1 me-1">{{ feedback.comment }}</span>
+                    <i class="bi bi-quote text-primary"></i>
+                  </div>
+                  <div class="feedback-name">
+                    {{ feedback.name }}
+                  </div>
+                  <div class="feedback-stars">
+                    <ng-container *ngFor="let star of [].constructor(feedback.rating || 0)">
+                      <i class="bi bi-star-fill feedback-star"></i>
+                    </ng-container>
+                    <ng-container *ngFor="let star of [].constructor(5 - (feedback.rating || 0))">
+                      <i class="bi bi-star feedback-star"></i>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <button class="carousel-control-prev feedback-carousel-btn" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next feedback-carousel-btn" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>

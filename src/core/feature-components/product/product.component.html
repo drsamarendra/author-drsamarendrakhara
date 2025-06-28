@@ -1,0 +1,115 @@
+<div class="container my-5">
+  <!-- Banner Section -->
+  <div class="product-banner mb-4 p-4 d-flex align-items-center justify-content-between rounded shadow-sm position-relative overflow-hidden">
+    <div class="banner-content z-index-2">
+      <h2 class="mb-2 text-primary font-weight-bold display-5">Explore Books by Dr. Samarendra Khara</h2>
+      <p class="mb-3 text-dark lead">Discover insightful reads and new releases.<br>Find your next favorite book today!</p>
+    </div>
+    <img src="assets/banner-books.png" alt="Books Banner" class="d-none d-md-block banner-img-animated z-index-2">
+    <div class="banner-bg"></div>
+    <!-- Decorative SVG Wave -->
+    <svg class="banner-wave" viewBox="0 0 500 60" preserveAspectRatio="none">
+      <path d="M0,30 Q250,80 500,30 L500,60 L0,60 Z" style="fill:#e3f0ff;opacity:0.7;"></path>
+      <path d="M0,40 Q250,90 500,40 L500,60 L0,60 Z" style="fill:#b6d4fe;opacity:0.4;"></path>
+    </svg>
+    <div class="banner-gradient"></div>
+  </div>
+
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
+    <div class="mb-3 mb-md-0 w-100 w-md-auto">
+      <div class="search-box position-relative">
+        <input type="text" class="form-control search-input pl-5" placeholder="Search books..." [(ngModel)]="searchText" (input)="filterProducts()" aria-label="Search books" />
+        <span class="search-icon position-absolute">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+    <div>
+      <button type="button" *ngIf="!isGridView" class="btn btn-outline-primary mr-2" [class.active]="isGridView" (click)="isGridView = true" aria-label="Grid view">
+        <i class="fas fa-th" aria-hidden="true"></i> Grid
+      </button>
+      <button type="button" *ngIf="isGridView" class="btn btn-outline-secondary" [class.active]="!isGridView" (click)="isGridView = false" aria-label="List view">
+        <i class="fas fa-list" aria-hidden="true"></i> List
+      </button>
+    </div>
+  </div>
+
+  <!-- Grid View -->
+  <div class="row" *ngIf="isGridView">
+    <div class="col-md-4 mb-4" *ngFor="let book of workerProductList">
+      <div class="text-decoration-none" (click)="goToDetails(book.id)" style="cursor:pointer;">
+        <div class="card h-100 shadow product-card-2 border-0">
+          <div class="img-gradient-wrapper-2">
+            <img [src]="book.image" class="card-img-top rounded-top product-img-2" alt="Book Cover">
+            <div class="img-gradient-2"></div>
+            <span class="badge bg-primary text-white position-absolute top-0 end-0 m-2 px-3 py-2 shadow-sm badge-book">Book</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-primary font-weight-bold mb-2">{{ book.title }}</h5>
+            <p class="card-text text-muted mb-3 min-h-48">{{ book.description }}</p>
+            <div class="mt-auto d-flex align-items-center">
+              <img src="assets/avatar.png" width="32" height="32" class="rounded-circle mr-2 border border-2 border-light shadow-sm" alt="Author" *ngIf="book.author">
+              <span class="badge bg-info text-dark px-2 py-1">{{ book.author }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- List View -->
+  <div *ngIf="!isGridView" class="container my-5">
+    <div *ngFor="let book of workerProductList" class="card mb-4 shadow-sm border list-style-card">
+      <div class="row no-gutters align-items-center">
+        <!-- Product Image -->
+        <div class="col-auto p-3">
+          <div (click)="goToDetails(book.id)" style="cursor:pointer;">
+            <img [src]="book.image" alt="Book Cover" class="list-book-img">
+          </div>
+        </div>
+        <!-- Product Details -->
+        <div class="col px-0">
+          <div class="card-body py-3 px-2">
+            <div class="d-flex align-items-center mb-2">
+              <!-- <span class="badge bg-success text-white mr-2" style="font-size:0.95rem;">
+                <i class="fas fa-star"></i> 4.6
+              </span>
+              <span class="text-muted small">5,216 Ratings & 333 Reviews</span>
+              <span class="ml-2 badge badge-light border text-secondary" style="font-size:0.8rem;">Sponsored</span> -->
+            </div>
+            <a (click)="goToDetails(book.id)" class="h5 mb-1 d-block text-dark font-weight-bold" style="cursor:pointer;">{{ book.title }}</a>
+            <div class="mb-2 text-muted small">{{ book.author }}</div>
+            <ul class="mb-2 pl-3 small text-secondary list-disc">
+              <li *ngIf="book.description">{{ book.description }}</li>
+              <li>Hardcover, 1st Edition</li>
+              <li>Free Delivery</li>
+            </ul>
+            <div class="mb-1">
+              <!-- <span class="badge bg-warning text-dark" style="font-size:0.85rem;">Bank Offer</span> -->
+            </div>
+            <div class="form-check mt-2">
+              <!-- <input class="form-check-input" type="checkbox" id="compare{{book.id}}">
+              <label class="form-check-label small text-muted" for="compare{{book.id}}">
+                Add to Compare
+              </label> -->
+            </div>
+          </div>
+        </div>
+        <!-- Price & Actions -->
+        <div class="col-auto pr-4 pl-0 text-right d-flex flex-column align-items-end justify-content-center">
+          <div class="mb-2">
+            <span class="h4 text-dark font-weight-bold">&#8377;{{ book.price || '1,499' }}</span>
+            <!-- <span class="text-muted small ml-2" style="text-decoration:line-through;">&#8377;{{ book.oldPrice || '1,999' }}</span>
+            <span class="text-success small ml-1">{{ book.discount || '25% off' }}</span> -->
+            <!-- <img src="assets/assured.png" alt="Assured" style="height:22px;margin-left:6px;" *ngIf="true"> -->
+          </div>
+          <!-- <div class="text-success small mb-1">Upto &#8377;500 Off on Exchange</div> -->
+          <div>
+            <button class="btn btn-sm btn-outline-primary mt-2" (click)="goToDetails(book.id)">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

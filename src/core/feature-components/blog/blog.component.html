@@ -1,0 +1,23 @@
+<div class="container my-5">
+  <div class="text-center mb-4">
+    <h2 class="display-4 font-weight-bold text-primary">Latest Blog Posts</h2>
+    <p class="lead text-muted">Insights, stories, and updates from Dr. Samarendra Khara</p>
+  </div>
+  <div class="row">
+    <!-- Blog Cards from blogList -->
+    <div class="col-md-4 mb-4" *ngFor="let blog of blogList">
+      <div class="card blog-card shadow-lg h-100 border-0">
+        <div class="img-gradient-wrapper">
+          <img [src]="blog.image" class="card-img-top rounded-top blog-img" alt="Blog Image">
+          <div class="img-gradient"></div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold text-secondary">{{ blog.title }}</h5>
+          <p class="card-text text-muted">{{ blog.summary }}</p>
+          <a [href]="blog.link" class="btn btn-outline-primary btn-animated">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
