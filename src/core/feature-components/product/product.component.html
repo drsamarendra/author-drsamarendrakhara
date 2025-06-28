@@ -1,11 +1,11 @@
-<div class="container my-5">
+<div class="container my-5 px-2 px-sm-3">
   <!-- Banner Section -->
-  <div class="product-banner mb-4 p-4 d-flex align-items-center justify-content-between rounded shadow-sm position-relative overflow-hidden">
-    <div class="banner-content z-index-2">
-      <h2 class="mb-2 text-primary font-weight-bold display-5">Explore Books by Dr. Samarendra Khara</h2>
-      <p class="mb-3 text-dark lead">Discover insightful reads and new releases.<br>Find your next favorite book today!</p>
+  <div class="product-banner mb-4 p-3 p-sm-4 d-flex flex-column flex-md-row align-items-center justify-content-between rounded shadow-sm position-relative overflow-hidden">
+    <div class="banner-content z-index-2 text-center text-md-start mb-2 mb-md-0 w-100">
+      <h2 class="mb-2 text-primary font-weight-bold fs-4 fs-md-2">Explore Books by Dr. Samarendra Khara</h2>
+      <p class="mb-0 text-dark lead fs-6 fs-md-5">Discover insightful reads and new releases.<br>Find your next favorite book today!</p>
     </div>
-    <img src="assets/banner-books.png" alt="Books Banner" class="d-none d-md-block banner-img-animated z-index-2">
+    <img src="assets/banner-books.png" alt="Books Banner" class="d-md-block banner-img-animated z-index-2 ms-md-4" style="max-width:140px; height:auto;">
     <div class="banner-bg"></div>
     <!-- Decorative SVG Wave -->
     <svg class="banner-wave" viewBox="0 0 500 60" preserveAspectRatio="none">
@@ -24,11 +24,11 @@
         </span>
       </div>
     </div>
-    <div>
-      <button type="button" *ngIf="!isGridView" class="btn btn-outline-primary mr-2" [class.active]="isGridView" (click)="isGridView = true" aria-label="Grid view">
+    <div class="mt-2 mt-md-0">
+      <button type="button" *ngIf="!isGridView" class="btn btn-outline-primary mr-2 mb-2 mb-md-0" [class.active]="isGridView" (click)="isGridView = true" aria-label="Grid view">
         <i class="fas fa-th" aria-hidden="true"></i> Grid
       </button>
-      <button type="button" *ngIf="isGridView" class="btn btn-outline-secondary" [class.active]="!isGridView" (click)="isGridView = false" aria-label="List view">
+      <button type="button" *ngIf="isGridView" class="btn btn-outline-secondary mb-2 mb-md-0" [class.active]="!isGridView" (click)="isGridView = false" aria-label="List view">
         <i class="fas fa-list" aria-hidden="true"></i> List
       </button>
     </div>
@@ -60,17 +60,17 @@
   <!-- List View -->
   <div *ngIf="!isGridView" class="container my-5">
     <div *ngFor="let book of workerProductList" class="card mb-4 shadow-sm border list-style-card">
-      <div class="row no-gutters align-items-center">
+      <div class="row no-gutters align-items-center flex-wrap flex-md-nowrap">
         <!-- Product Image -->
-        <div class="col-auto p-3">
+        <div class="col-12 col-sm-auto p-3 d-flex justify-content-center align-items-center">
           <div (click)="goToDetails(book.id)" style="cursor:pointer;">
-            <img [src]="book.image" alt="Book Cover" class="list-book-img">
+            <img [src]="book.image" alt="Book Cover" class="list-book-img img-fluid mx-auto d-block" style="max-width:110px; width:100%; height:auto;">
           </div>
         </div>
         <!-- Product Details -->
-        <div class="col px-0">
-          <div class="card-body py-3 px-2">
-            <div class="d-flex align-items-center mb-2">
+        <div class="col-12 col-sm px-0">
+          <div class="card-body py-3 px-2 text-center text-sm-start">
+            <div class="d-flex align-items-center mb-2 flex-wrap justify-content-center justify-content-sm-start">
               <!-- <span class="badge bg-success text-white mr-2" style="font-size:0.95rem;">
                 <i class="fas fa-star"></i> 4.6
               </span>
@@ -79,7 +79,7 @@
             </div>
             <a (click)="goToDetails(book.id)" class="h5 mb-1 d-block text-dark font-weight-bold" style="cursor:pointer;">{{ book.title }}</a>
             <div class="mb-2 text-muted small">{{ book.author }}</div>
-            <ul class="mb-2 pl-3 small text-secondary list-disc">
+            <ul class="mb-2 pl-3 small text-secondary list-disc text-start mx-auto mx-sm-0" style="display:inline-block;">
               <li *ngIf="book.description">{{ book.description }}</li>
               <li>Hardcover, 1st Edition</li>
               <li>Free Delivery</li>
@@ -96,20 +96,19 @@
           </div>
         </div>
         <!-- Price & Actions -->
-        <div class="col-auto pr-4 pl-0 text-right d-flex flex-column align-items-end justify-content-center">
-          <div class="mb-2">
+        <div class="col-12 pricing-area col-sm-auto pr-4 pl-0 text-right d-flex flex-column justify-content-center align-items-end align-items-sm-end align-items-center mt-2 mt-sm-0">
+          <div class="mb-2 text-center text-sm-end w-100">
             <span class="h4 text-dark font-weight-bold">&#8377;{{ book.price || '1,499' }}</span>
             <!-- <span class="text-muted small ml-2" style="text-decoration:line-through;">&#8377;{{ book.oldPrice || '1,999' }}</span>
             <span class="text-success small ml-1">{{ book.discount || '25% off' }}</span> -->
             <!-- <img src="assets/assured.png" alt="Assured" style="height:22px;margin-left:6px;" *ngIf="true"> -->
           </div>
           <!-- <div class="text-success small mb-1">Upto &#8377;500 Off on Exchange</div> -->
-          <div>
-            <button class="btn btn-sm btn-outline-primary mt-2" (click)="goToDetails(book.id)">View Details</button>
+          <div class="w-100">
+            <button class="btn btn-sm btn-outline-primary mt-2 w-100 w-sm-auto" (click)="goToDetails(book.id)">View Details</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
