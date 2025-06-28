@@ -1,0 +1,85 @@
+.enhanced-carousel {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(13, 110, 253, 0.13);
+    margin-bottom: 2rem;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.carousel-inner {
+    max-height: 450px;
+}
+
+.carousel-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+.carousel-img-enhanced {
+    object-fit: cover;
+    width: 100%;
+    height: 450px;
+    filter: brightness(0.85) contrast(1.08);
+    transition: filter 0.3s;
+}
+
+.carousel-img-wrapper:hover .carousel-img-enhanced {
+    filter: brightness(0.95) contrast(1.12) blur(1px);
+}
+
+.carousel-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.38) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.enhanced-caption {
+    z-index: 2;
+    text-align: left;
+    left: 5%;
+    right: 5%;
+    bottom: 2.5rem;
+    background: rgba(0, 0, 0, 0.22);
+    border-radius: 2rem;
+    padding: 1.2rem 2rem;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
+}
+
+.text-shadow {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.12);
+    color: #fff !important;
+}
+
+.enhanced-carousel-btn {
+    filter: drop-shadow(0 2px 8px rgba(13, 110, 253, 0.13));
+}
+
+@media (max-width: 991.98px) {
+    .carousel-inner {
+        max-height: 320px;
+    }
+
+    .carousel-img-wrapper,
+    .carousel-img-enhanced {
+        height: 320px;
+    }
+
+    .enhanced-caption {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .enhanced-caption {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.95rem;
+        left: 2%;
+        right: 2%;
+        bottom: 1rem;
+    }
+}

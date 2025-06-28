@@ -1,5 +1,5 @@
 <section>
-<div id="clinicCarousel" class="container carousel slide mx-auto" style="max-width:100vw;" data-bs-ride="carousel">
+<div id="clinicCarousel" class="container carousel slide mx-auto enhanced-carousel" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button *ngFor="let slide of carouselList; let i = index"
       type="button"
@@ -10,20 +10,22 @@
       [attr.aria-label]="'Slide ' + (i + 1)">
     </button>
   </div>
-  <div class="carousel-inner" style="max-height:600px;">
+  <div class="carousel-inner">
     <div *ngFor="let slide of carouselList; let i = index" class="carousel-item" [class.active]="i === 0">
-      <img [src]="slide.image" class="d-block w-100" [alt]="slide.alt"
-        style="object-fit:cover; width:100%; height:600px;">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>{{ slide.title }}</h5>
-        <p>{{ slide.description }}</p>
+      <div class="carousel-img-wrapper position-relative">
+        <img [src]="slide.image" class="d-block w-100 carousel-img-enhanced" [alt]="slide.alt">
+        <div class="carousel-img-overlay"></div>
+      </div>
+      <div class="carousel-caption d-none d-md-block enhanced-caption">
+        <h5 class="fw-bold display-6 text-shadow">{{ slide.title }}</h5>
+        <p class="lead text-shadow">{{ slide.description }}</p>
       </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#clinicCarousel" data-bs-slide="prev">
+  <button class="carousel-control-prev enhanced-carousel-btn" type="button" data-bs-target="#clinicCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#clinicCarousel" data-bs-slide="next">
+  <button class="carousel-control-next enhanced-carousel-btn" type="button" data-bs-target="#clinicCarousel" data-bs-slide="next">
     <span class="carousel-control-next-icon"></span>
   </button>
 </div>
