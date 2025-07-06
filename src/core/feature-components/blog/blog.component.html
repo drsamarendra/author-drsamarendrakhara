@@ -14,7 +14,7 @@
         <div class="card-body">
           <h5 class="card-title font-weight-bold text-secondary">{{ blog.title }}</h5>
           <p class="card-text text-muted">{{ blog.summary }}</p>
-          <a [href]="blog.link" class="btn btn-outline-primary btn-animated">Read More</a>
+          <a (click)="onClickBlog(blog)" class="btn btn-outline-primary btn-animated">Read More</a>
         </div>
       </div>
     </div>

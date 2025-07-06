@@ -221,10 +221,11 @@
 }
 
 .list-book-img {
-  width: 110px;
-  height: 140px;
   object-fit: cover;
   border-radius: 8px;
+  max-width: 110px;
+  width: 100%;
+  height: auto;
 }
 
 .list-disc {
@@ -236,63 +237,84 @@
   background: linear-gradient(90deg, #e3f0ff 60%, #f8fbff 100%);
   /* ...existing code... */
 }
-.banner-content h2, .banner-content .fs-4 {
+
+.banner-content h2,
+.banner-content .fs-4 {
   font-size: 1.25rem !important;
 }
-.banner-content .lead, .banner-content .fs-6 {
+
+.banner-content .lead,
+.banner-content .fs-6 {
   font-size: 1rem !important;
 }
+
 @media (min-width: 768px) {
-  .banner-content h2, .banner-content .fs-md-2 {
+
+  .banner-content h2,
+  .banner-content .fs-md-2 {
     font-size: 2rem !important;
   }
-  .banner-content .lead, .banner-content .fs-md-5 {
+
+  .banner-content .lead,
+  .banner-content .fs-md-5 {
     font-size: 1.25rem !important;
   }
 }
+
 @media (max-width: 991.98px) {
   .product-banner {
     flex-direction: column !important;
     text-align: center;
     padding: 1.2rem 0.5rem;
   }
+
   .banner-content {
     margin-bottom: 0.5rem;
   }
+
   .banner-img-animated {
     margin-left: 0 !important;
     margin-top: 0.5rem;
     max-width: 100px !important;
   }
 }
+
 @media (max-width: 767.98px) {
   .container.my-5 {
     padding-left: 2px !important;
     padding-right: 2px !important;
   }
+
   .product-banner {
     flex-direction: column !important;
     text-align: center;
     min-height: 60px;
     padding: 0.7rem 0.2rem;
   }
-  .banner-content h2, .banner-content .fs-4 {
+
+  .banner-content h2,
+  .banner-content .fs-4 {
     font-size: 1rem !important;
   }
-  .banner-content .lead, .banner-content .fs-6 {
+
+  .banner-content .lead,
+  .banner-content .fs-6 {
     font-size: 0.92rem !important;
   }
+
   /* .banner-img-animated {
     display: none !important;
   } */
   .search-box {
     max-width: 100%;
   }
+
   .btn {
     width: 100%;
     margin-bottom: 0.5rem;
   }
 }
+
 .pricing-area {
   background: linear-gradient(90deg, #e3f0ff 60%, #f8fbff 100%);
   padding: 1.5rem;

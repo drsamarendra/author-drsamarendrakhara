@@ -1,0 +1,23 @@
+<!-- Blog Details Page -->
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <div class="card shadow-lg border-0 p-4 blog-details-card">
+        <div class="mb-4">
+          <button class="btn btn-outline-secondary mb-3" (click)="goBackToBlogPage()">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Blogs
+          </button>
+          <h1 class="display-5 fw-bold text-primary mb-2">{{ blog?.title }}</h1>
+          <div class="mb-3 text-muted small">
+            <i class="fas fa-user"></i> {{ blog?.author }} &nbsp;|&nbsp;
+            <i class="fas fa-calendar-alt"></i> {{ blog?.date || '2024-01-01' }}
+          </div>
+        </div>
+        <img *ngIf="blog?.image" [src]="blog.image" alt="Blog Image" class="img-fluid rounded shadow mb-4 w-100">
+        <div class="blog-content fs-5 text-dark">
+          {{ blog?.description }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

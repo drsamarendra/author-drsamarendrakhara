@@ -13,6 +13,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { BlogComponent } from './feature-components/blog/blog.component';
 import { ProductComponent } from './feature-components/product/product.component';
 import { ProductDetailsComponent } from './feature-components/product-details/product-details.component';
+import { BlogDetailsComponent } from './feature-components/blog-details/blog-details.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ProductDetailsComponent } from './feature-components/product-details/pr
     CarouselComponent,
     BlogComponent,
     ProductComponent,
-    ProductDetailsComponent 
+    ProductDetailsComponent,
+    BlogDetailsComponent 
   ],
   imports: [
     CommonModule,

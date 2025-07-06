@@ -1,34 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { GetApiDataService } from 'src/core/shared-service/get-api-data.service';
+import { ProductService } from '../../shared-service/product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   public productList: any[] = [];
   public product: any;
+  public id: number = 0;
+  public selectedImage: string | null = null;
+  thumbStartIndex = 0;
+  maxThumbs = 4; // Show 4 thumbnails at a time
+  private productDetailsSubscription?: Subscription;
+  showFullDescription = false;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private getApiDataService: GetApiDataService,
+    private productService: ProductService,
   ) {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   ngOnInit(): void {
-    this.getApiDataService.getApiData('json/productList.json').subscribe(
-      response => {
-        this.productList = response.data;
-        const id = Number(this.route.snapshot.paramMap.get('id'));
-        this.product = this.productList.find(p => p.id === id);
-      }
-    );
+    this.productDetailsSubscription =
+      this.productService.handleProductDetails(this.id).subscribe(
+        response => {
+          this.product = response;
+          if (this.product?.imageUrls?.length) {
+            this.selectedImage = this.product.imageUrls[0];
+            this.thumbStartIndex = 0;
+          }
+        }
+      );
   }
 
   goBack() {
@@ -41,5 +51,27 @@ export class ProductDetailsComponent implements OnInit {
       `Hello, I am interested in buying the book "${this.product?.title}" by ${this.product?.author}.`
     );
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+  }
+
+  get visibleThumbs(): string[] {
+    if (!this.product?.imageUrls) return [];
+    return this.product.imageUrls.slice(this.thumbStartIndex, this.thumbStartIndex + this.maxThumbs);
+  }
+
+  selectImage(img: string) {
+    this.selectedImage = img;
+  }
+
+  scrollThumbs(direction: 'up' | 'down') {
+    if (!this.product?.imageUrls) return;
+    if (direction === 'up' && this.thumbStartIndex > 0) {
+      this.thumbStartIndex--;
+    } else if (direction === 'down' && this.thumbStartIndex + this.maxThumbs < this.product.imageUrls.length) {
+      this.thumbStartIndex++;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.productDetailsSubscription?.unsubscribe();
   }
 }
