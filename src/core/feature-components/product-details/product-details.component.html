@@ -7,20 +7,20 @@
       <div class="row product-details-card">
         <div class="col-md-6">
           <div class="row">
-            <div class="col-md-2">
-              <button (click)="scrollThumbs('up')" [disabled]="thumbStartIndex === 0">
-                <i class="fas fa-chevron-up"></i>
+            <div class="col-md-2 gallery-thumbs-vertical">
+              <button class="primary-btn" (click)="scrollThumbs('up')" [disabled]="thumbStartIndex === 0">
+                <i class="bi bi-chevron-up"></i>
               </button>
               <img *ngFor="let img of visibleThumbs" [src]="img" alt="Book Thumbnail"
-                class="gallery-thumb-vertical mb-2" [class.active]="img === selectedImage" (click)="selectImage(img)">
-              <button class="gallery-arrow-btn mt-2" (click)="scrollThumbs('down')"
+                class="gallery-thumb-vertica mlb-2" [class.active]="img === selectedImage" (click)="selectImage(img)">
+              <button class="primary-btn" (click)="scrollThumbs('down')"
                 [disabled]="thumbStartIndex + maxThumbs >= product?.imageUrls?.length">
-                <i class="fas fa-chevron-down"></i>
+                <i class="bi bi-chevron-down"></i>
               </button>
             </div>
             <div class="col-md-10 details-img-wrapper">
-                <img [src]="selectedImage || product?.imageUrls[0]" alt="Book Image">
-                <!-- <span class="badge bg-primary text-white details-badge">Book</span> -->
+              <img [src]="selectedImage || product?.imageUrls[0]" alt="Book Image">
+              <!-- <span class="badge bg-primary text-white details-badge">Book</span> -->
             </div>
             <button type="button" class="btn btn-primary buy-button" (click)="buyOnWhatsApp()">Buy Now</button>
           </div>
@@ -60,7 +60,11 @@
             <div class="row">
               <div class="mb-4">
                 <h5 class="fw-bold mb-2 text-secondary">Description</h5>
-                <p class="text-muted fs-5" style="white-space:pre-line;">{{ product?.description }}</p>
+                <p class="text-muted product-description fs-5" [class.collapsed]="!showFullDescription">
+                  {{ product?.description }}
+                </p>
+                <a *ngIf="!showFullDescription && product?.description" class="show-more-link" (click)="showFullDescription = true">...Show more...</a>
+                <a *ngIf="showFullDescription && product?.description" class="show-more-link" (click)="showFullDescription = false">...Show less...</a>
               </div>
             </div>
           </div>

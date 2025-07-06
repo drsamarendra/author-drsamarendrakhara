@@ -18,6 +18,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   thumbStartIndex = 0;
   maxThumbs = 4; // Show 4 thumbnails at a time
   private productDetailsSubscription?: Subscription;
+  showFullDescription = false;
 
   constructor(
     private route: ActivatedRoute,
