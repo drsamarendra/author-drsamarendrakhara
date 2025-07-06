@@ -1,47 +1,71 @@
-<div class="container my-5">
+<div class="container ">
   <div class="row justify-content-center">
-    <div class="col-lg-8">
+    <div class="col-md-12">
       <button class="btn btn-outline-secondary mb-3 back-btn" (click)="goBack()">
         <i class="fas fa-arrow-left mr-2"></i> Back to Products
       </button>
-      <div class="card shadow-lg border-0 product-details-card p-4 position-relative overflow-hidden">
-        <!-- Decorative background shapes -->
-        <div class="details-bg-shape"></div>
-        <div class="row">
-          <!-- Book Image -->
-          <div class="col-md-5 text-center mb-4 mb-md-0 d-flex flex-column align-items-center justify-content-center">
-            <div class="details-img-wrapper mb-3">
-              <img [src]="product?.image" alt="Book Cover" class="img-fluid rounded details-img shadow-lg">
-              <span class="badge bg-primary text-white details-badge">Book</span>
+      <div class="row product-details-card">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-2">
+              <button (click)="scrollThumbs('up')" [disabled]="thumbStartIndex === 0">
+                <i class="fas fa-chevron-up"></i>
+              </button>
+              <img *ngFor="let img of visibleThumbs" [src]="img" alt="Book Thumbnail"
+                class="gallery-thumb-vertical mb-2" [class.active]="img === selectedImage" (click)="selectImage(img)">
+              <button class="gallery-arrow-btn mt-2" (click)="scrollThumbs('down')"
+                [disabled]="thumbStartIndex + maxThumbs >= product?.imageUrls?.length">
+                <i class="fas fa-chevron-down"></i>
+              </button>
             </div>
-            <div *ngIf="product?.author" class="author-avatar mb-2">
-              <img src="assets/author-image.jpg" width="48" height="48" class="rounded-circle border border-2 border-light shadow" alt="Author">
-              <div class="author-name mt-2 text-secondary small">{{ product?.author }}</div>
+            <div class="col-md-10 details-img-wrapper">
+                <img [src]="selectedImage || product?.imageUrls[0]" alt="Book Image">
+                <!-- <span class="badge bg-primary text-white details-badge">Book</span> -->
             </div>
+            <button type="button" class="btn btn-primary buy-button" (click)="buyOnWhatsApp()">Buy Now</button>
           </div>
-          <!-- Book Details -->
-          <div class="col-md-7 d-flex flex-column justify-content-center">
-            <h2 class="text-primary font-weight-bold mb-2 display-6">{{ product?.title }}</h2>
-            <div class="mb-3">
-              <span class="h3 text-dark font-weight-bold">&#8377;{{ product?.price || '1,499' }}</span>
-              <span class="text-muted small ms-2 text-decoration-line-through">&#8377;{{ product?.oldPrice || '1,999' }}</span>
-              <span class="text-success small ms-1">{{ product?.discount || '25% off' }}</span>
+
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="row">
+              <h2 class="text-primary font-weight-bold">{{ product?.title }}</h2>
             </div>
-            <div class="mb-3">
-              <span class="badge bg-success text-white px-2 py-1 me-2"><i class="fas fa-star"></i> 4.6</span>
-              <span class="text-muted small">5,216 Ratings & 333 Reviews</span>
+            <div class="row">
+              <div class="col-md-12">
+                <span class="h3 text-dark font-weight-bold">&#8377;{{ product?.price || '1,499' }}</span>
+                <span class="text-muted small ms-2 text-decoration-line-through">&#8377;{{ product?.oldPrice || '1,999'
+                  }}</span>
+                <span class="text-success small ms-1">{{ product?.discount || '25% off' }}</span>
+              </div>
             </div>
-            <p class="text-muted mb-4 fs-5">{{ product?.description }}</p>
-            <ul class="list-unstyled mb-4">
-              <li><i class="fas fa-book-open text-primary me-2"></i>Hardcover, 1st Edition</li>
-              <li><i class="fas fa-truck text-primary me-2"></i>Free Delivery</li>
-              <li><i class="fas fa-tag text-primary me-2"></i><span class="badge bg-warning text-dark">Bank Offer</span></li>
-            </ul>
-            <button class="btn btn-gradient btn-lg px-5 shadow-sm buy-btn" (click)="buyOnWhatsApp()">Buy Now</button>
+            <div class="row">
+              <div class="col-md-12">
+                <span class="badge bg-success text-white px-2 py-1 me-2"><i class="fas fa-star"></i> 4.6</span>
+                <span class="text-muted small">5,216 Ratings & 333 Reviews</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="fw-bold mb-2 text-secondary">Specifications</h5>
+                <ul class="list-unstyled mb-0">
+                  <li><strong>Author:</strong> {{ product?.author }}</li>
+                  <li><strong>Edition:</strong> Hardcover, 1st Edition</li>
+                  <li><strong>Language:</strong> বাংলা</li>
+                  <li><strong>Delivery:</strong> Free Delivery</li>
+                  <li><strong>Offer:</strong> <span class="badge bg-warning text-dark">Bank Offer</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-4">
+                <h5 class="fw-bold mb-2 text-secondary">Description</h5>
+                <p class="text-muted fs-5" style="white-space:pre-line;">{{ product?.description }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

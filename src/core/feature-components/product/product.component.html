@@ -40,7 +40,7 @@
       <div class="text-decoration-none" (click)="goToDetails(book.id)" style="cursor:pointer;">
         <div class="card h-100 shadow product-card-2 border-0">
           <div class="img-gradient-wrapper-2">
-            <img [src]="book.image" class="card-img-top rounded-top product-img-2" alt="Book Cover">
+            <img [src]="book.imageUrl" class="card-img-top rounded-top product-img-2" alt="Book Cover">
             <div class="img-gradient-2"></div>
             <span class="badge bg-primary text-white position-absolute top-0 end-0 m-2 px-3 py-2 shadow-sm badge-book">Book</span>
           </div>
@@ -64,7 +64,7 @@
         <!-- Product Image -->
         <div class="col-12 col-sm-auto p-3 d-flex justify-content-center align-items-center">
           <div (click)="goToDetails(book.id)" style="cursor:pointer;">
-            <img [src]="book.image" alt="Book Cover" class="list-book-img img-fluid mx-auto d-block" style="max-width:110px; width:100%; height:auto;">
+            <img [src]="book.imageUrl" [alt]="book.alt" class="list-book-img img-fluid mx-auto d-block">
           </div>
         </div>
         <!-- Product Details -->

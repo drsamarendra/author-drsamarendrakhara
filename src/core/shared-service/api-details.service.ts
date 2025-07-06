@@ -35,7 +35,7 @@ export class ApiDetailsService {
       new ApiDetails()
       .setBaseUrl(this.baseUrl)
       .setVersion(this.version)
-      .setUrl('json/carouselList.json')
+      .setUrl('json/productDetails.json')
       .setMethod('get')
       .setHeader(this.getHeaders()),
   ];

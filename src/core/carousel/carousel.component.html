@@ -13,7 +13,7 @@
   <div class="carousel-inner">
     <div *ngFor="let slide of carouselList; let i = index" class="carousel-item" [class.active]="i === 0">
       <div class="carousel-img-wrapper position-relative">
-        <img [src]="slide.image" class="d-block w-100 carousel-img-enhanced" [alt]="slide.alt">
+        <img [src]="slide.imageUrl" class="d-block w-100 carousel-img-enhanced" [alt]="slide.alt">
         <div class="carousel-img-overlay"></div>
       </div>
       <div class="carousel-caption d-none d-md-block enhanced-caption">

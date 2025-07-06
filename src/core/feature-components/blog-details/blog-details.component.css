@@ -1,0 +1,22 @@
+.blog-details-card {
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0 8px 32px 0 rgba(0,123,255,0.10);
+}
+.blog-content {
+  margin-top: 1.5rem;
+  font-size: 1.15rem;
+  color: #222;
+}
+.img-fluid{
+    max-height:340px;
+    object-fit:cover;
+}
+@media (max-width: 767px) {
+  .blog-details-card {
+    padding: 1rem !important;
+  }
+  .blog-content {
+    font-size: 1rem;
+  }
+}
