@@ -26,8 +26,6 @@
   align-items: center;
   justify-content: center;
   border: 2px dotted rgb(198, 190, 219);
-  ;
-  /* width: 100%; */
 }
 
 .buy-button {
@@ -66,8 +64,14 @@
   color: rgb(10, 1, 1);
   width: 100%;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  margin: 2px;
+  width: 94%;
+}
+
+.primary-btn:hover {
+  background-color: #9ec1f2;
+  color: rgb(10, 1, 1);
 }
 
 .product-description.collapsed {
@@ -105,4 +109,12 @@
 .gallery-thumb-vertica {
   border-bottom: 2px dotted rgb(198, 190, 219);
   padding: 10%;
+}
+
+.first-img {
+  border-top: 2px dotted rgb(198, 190, 219);
+}
+
+.details-img-wrapper-select {
+  width: 80%;
 }

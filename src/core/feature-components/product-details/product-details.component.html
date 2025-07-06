@@ -8,18 +8,18 @@
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-2 gallery-thumbs-vertical">
-              <button class="primary-btn" (click)="scrollThumbs('up')" [disabled]="thumbStartIndex === 0">
+              <button *ngIf="product?.imageUrls?.length > 4" class="primary-btn" (click)="scrollThumbs('up')" [disabled]="thumbStartIndex === 0">
                 <i class="bi bi-chevron-up"></i>
               </button>
-              <img *ngFor="let img of visibleThumbs" [src]="img" alt="Book Thumbnail"
-                class="gallery-thumb-vertica mlb-2" [class.active]="img === selectedImage" (click)="selectImage(img)">
-              <button class="primary-btn" (click)="scrollThumbs('down')"
+              <img *ngFor="let img of visibleThumbs; let isFirst = first" [src]="img" alt="Book Thumbnail"
+                class="gallery-thumb-vertica mlb-2" [ngClass]="isFirst ? 'first-img' : ''" [class.active]="img === selectedImage" (click)="selectImage(img)">
+              <button *ngIf="product?.imageUrls?.length > 4" class="primary-btn" (click)="scrollThumbs('down')"
                 [disabled]="thumbStartIndex + maxThumbs >= product?.imageUrls?.length">
                 <i class="bi bi-chevron-down"></i>
               </button>
             </div>
             <div class="col-md-10 details-img-wrapper">
-              <img [src]="selectedImage || product?.imageUrls[0]" alt="Book Image">
+              <img class="details-img-wrapper-select" [src]="selectedImage || product?.imageUrls[0]" alt="Book Image">
               <!-- <span class="badge bg-primary text-white details-badge">Book</span> -->
             </div>
             <button type="button" class="btn btn-primary buy-button" (click)="buyOnWhatsApp()">Buy Now</button>
