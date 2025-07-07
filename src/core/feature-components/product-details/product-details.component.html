@@ -1,54 +1,55 @@
-<div class="container ">
+<div class="container py-3">
   <div class="row justify-content-center">
-    <div class="col-md-12">
-      <button class="btn btn-outline-secondary mb-3 back-btn" (click)="goBack()">
-        <i class="fas fa-arrow-left mr-2"></i> Back to Products
+    <div class="col-12 col-md-10 col-lg-9">
+      <button class="btn btn-outline-secondary mb-3 back-btn" (click)="goBackToProductPage()">
+        <i class="fas fa-arrow-left me-2"></i> Back to Products
       </button>
-      <div class="row product-details-card">
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-2 gallery-thumbs-vertical">
-              <button *ngIf="product?.imageUrls?.length > 4" class="primary-btn" (click)="scrollThumbs('up')" [disabled]="thumbStartIndex === 0">
-                <i class="bi bi-chevron-up"></i>
-              </button>
-              <img *ngFor="let img of visibleThumbs; let isFirst = first" [src]="img" alt="Book Thumbnail"
-                class="gallery-thumb-vertica mlb-2" [ngClass]="isFirst ? 'first-img' : ''" [class.active]="img === selectedImage" (click)="selectImage(img)">
-              <button *ngIf="product?.imageUrls?.length > 4" class="primary-btn" (click)="scrollThumbs('down')"
-                [disabled]="thumbStartIndex + maxThumbs >= product?.imageUrls?.length">
-                <i class="bi bi-chevron-down"></i>
-              </button>
-            </div>
-            <div class="col-md-10 details-img-wrapper">
-              <img class="details-img-wrapper-select" [src]="selectedImage || product?.imageUrls[0]" alt="Book Image">
-              <!-- <span class="badge bg-primary text-white details-badge">Book</span> -->
-            </div>
-            <button type="button" class="btn btn-primary buy-button" (click)="buyOnWhatsApp()">Buy Now</button>
-          </div>
 
-        </div>
-        <div class="col-md-6">
+      <div class="card product-details-card shadow-sm">
+        <div class="card-body">
           <div class="row">
-            <div class="row">
-              <h2 class="text-primary font-weight-bold">{{ product?.title }}</h2>
+            <div class="col-12 col-md-6 mb-4 mb-md-0">
+              <div class="row g-2">
+                <div class="col-12 details-img-wrapper">
+                  <img class="details-img-wrapper-select img-fluid" [src]="selectedImage || product?.imageUrls[0]" alt="Book Image">
+                </div>
+
+                <div class="col-12 gallery-thumbs-wrapper mt-3">
+                  <div class="d-flex flex-row align-items-center justify-content-center gallery-thumbs-wrapper-inner">
+                    <button *ngIf="product?.imageUrls?.length > 4" class="btn primary-btn me-2" (click)="scrollThumbs('left')" [disabled]="thumbStartIndex === 0">
+                      <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <div class="d-flex gallery-thumbs-scroll">
+                      <img *ngFor="let img of visibleThumbs; let isFirst = first" [src]="img" alt="Book Thumbnail"
+                        class="gallery-thumb-horizontal img-fluid rounded me-2" [ngClass]="isFirst ? 'first-img' : ''" [class.active]="img === selectedImage" (click)="selectImage(img)">
+                    </div>
+                    <button *ngIf="product?.imageUrls?.length > 4" class="btn primary-btn ms-2" (click)="scrollThumbs('right')"
+                      [disabled]="thumbStartIndex + maxThumbs >= product?.imageUrls?.length">
+                      <i class="bi bi-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary buy-button w-100 mt-3" (click)="buyOnWhatsApp()">Buy Now</button>
             </div>
-            <div class="row">
-              <div class="col-md-12">
+
+            <div class="col-12 col-md-6">
+              <h2 class="text-primary font-weight-bold mb-2">{{ product?.title }}</h2>
+
+              <div class="mb-3">
                 <span class="h3 text-dark font-weight-bold">&#8377;{{ product?.price || '1,499' }}</span>
-                <span class="text-muted small ms-2 text-decoration-line-through">&#8377;{{ product?.oldPrice || '1,999'
-                  }}</span>
+                <span class="text-muted small ms-2 text-decoration-line-through">&#8377;{{ product?.oldPrice || '1,999' }}</span>
                 <span class="text-success small ms-1">{{ product?.discount || '25% off' }}</span>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
+
+              <div class="mb-3">
                 <span class="badge bg-success text-white px-2 py-1 me-2"><i class="fas fa-star"></i> 4.6</span>
                 <span class="text-muted small">5,216 Ratings & 333 Reviews</span>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
+
+              <div class="mb-4">
                 <h5 class="fw-bold mb-2 text-secondary">Specifications</h5>
-                <ul class="list-unstyled mb-0">
+                <ul class="list-unstyled mb-0 small">
                   <li><strong>Author:</strong> {{ product?.author }}</li>
                   <li><strong>Edition:</strong> Hardcover, 1st Edition</li>
                   <li><strong>Language:</strong> বাংলা</li>
@@ -56,11 +57,10 @@
                   <li><strong>Offer:</strong> <span class="badge bg-warning text-dark">Bank Offer</span></li>
                 </ul>
               </div>
-            </div>
-            <div class="row">
-              <div class="mb-4">
+
+              <div>
                 <h5 class="fw-bold mb-2 text-secondary">Description</h5>
-                <p class="text-muted product-description fs-5" [class.collapsed]="!showFullDescription">
+                <p class="text-muted product-description small" [class.collapsed]="!showFullDescription">
                   {{ product?.description }}
                 </p>
                 <a *ngIf="!showFullDescription && product?.description" class="show-more-link" (click)="showFullDescription = true">...Show more...</a>

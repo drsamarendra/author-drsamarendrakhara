@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ProductService } from '../../shared-service/product.service';
 import { Subscription } from 'rxjs';
 
@@ -50,8 +50,13 @@ export class ProductComponent implements OnInit, OnDestroy {
     );
   }
 
-  public goToDetails(id: number) {
-    this.router.navigate(['/product-details', id]);
+  public goToDetails(product: any): void {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        data: product
+      }
+    };
+    this.router.navigateByUrl('/product-details', navigationExtras);
   }
 
 
