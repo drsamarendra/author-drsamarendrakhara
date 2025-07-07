@@ -32,7 +32,7 @@ jobs:
         # For example, if your repo is 'my-portfolio-app', use --base-href=/my-portfolio-app/
         # The output-path 'docs' is recommended for GitHub Pages, but you can use 'dist'
         # if you prefer and configure GitHub Pages to serve from 'root /' of the gh-pages branch.
-        run: npm run build -- --output-path=docs --base-href=/author-drsamarendrakhara/
+        run: npm run build -- --output-path=docs --base-href=/
 
       - name: Add .nojekyll file
         # This tells GitHub Pages NOT to process your site with Jekyll,
