@@ -11,11 +11,11 @@
             <div class="col-12 col-md-6 mb-4 mb-md-0">
               <div class="row g-2">
                 <div class="col-12 details-img-wrapper">
-                  <img class="details-img-wrapper-select img-fluid rounded" [src]="selectedImage || product?.imageUrls[0]" alt="Book Image">
+                  <img class="details-img-wrapper-select img-fluid" [src]="selectedImage || product?.imageUrls[0]" alt="Book Image">
                 </div>
 
                 <div class="col-12 gallery-thumbs-wrapper mt-3">
-                  <div class="d-flex flex-row align-items-center justify-content-center">
+                  <div class="d-flex flex-row align-items-center justify-content-center gallery-thumbs-wrapper-inner">
                     <button *ngIf="product?.imageUrls?.length > 4" class="btn primary-btn me-2" (click)="scrollThumbs('left')" [disabled]="thumbStartIndex === 0">
                       <i class="bi bi-chevron-left"></i>
                     </button>

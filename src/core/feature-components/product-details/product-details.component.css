@@ -1,64 +1,68 @@
-/* General Mobile Adjustments */
 .container {
   padding-left: 15px;
   padding-right: 15px;
 }
 
 .product-details-card {
-  border-radius: 0.75rem; /* Slightly rounded corners */
+  border-radius: 0.75rem;
 }
 
-/* Back Button */
 .back-btn {
-  font-size: 0.9rem; /* Smaller font on mobile */
+  font-size: 0.9rem;
   padding: 0.5rem 1rem;
 }
 
-/* Image Gallery Adjustments */
 .details-img-wrapper-select {
   width: 100%;
   height: auto;
-  max-height: 400px; /* Limit height on smaller screens */
-  object-fit: contain; /* Ensure image fits without cropping */
+  max-height: 400px;
+  object-fit: contain;
 }
 
 .gallery-thumbs-wrapper {
-  /* This wrapper will now contain the horizontal thumbnails */
-  width: 100%; /* Ensure it takes full width within its column */
+  width: 100%;
+  margin-top: 0px !important;
+}
+
+.gallery-thumbs-wrapper-inner {
+  border: 1px solid #ddd;
+  border-top: none;
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+  padding-top: 5px;
 }
 
 .gallery-thumbs-scroll {
-  display: flex; /* Use flexbox for horizontal layout */
+  display: flex;
   flex-direction: row;
-  overflow-x: hidden; /* Enable horizontal scrolling */
-  -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
-  max-width: 100%; /* Ensure it doesn't overflow */
-  padding-bottom: 5px; /* Add some padding for scrollbar if visible */
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  padding-bottom: 5px;
 }
 
 .gallery-thumb-horizontal {
-  width: 80px; /* Fixed size for horizontal thumbnails */
+  width: 80px;
   height: 80px;
   object-fit: cover;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.2s;
-  border-radius: 8px; /* Add some rounded corners to thumbs */
+  border-radius: 8px;
 }
 
 .gallery-thumb-horizontal.active {
-  border-color: #007bff; /* Primary color for active thumb */
+  border-color: #007bff;
 }
 
-/* Scroll Buttons for Horizontal Gallery */
 .primary-btn {
   background-color: #007bff;
   color: white;
   border: none;
   padding: 0.3rem 0.5rem;
   font-size: 0.8rem;
-  border-radius: 50%; /* Circular buttons */
+  border-radius: 50%;
   width: 30px;
   height: 30px;
   display: flex;
@@ -66,69 +70,54 @@
   justify-content: center;
 }
 
-.primary-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 @media (max-width: 767.98px) {
-  /* Styles for screens smaller than 'md' (768px) */
-
   .product-details-card .card-body {
-    padding: 1rem; /* Reduce padding on small screens */
+    padding: 1rem;
   }
-
   .buy-button {
-    font-size: 1.1rem; /* Slightly larger for easier tapping */
+    font-size: 1.1rem;
     padding: 0.75rem 1.25rem;
   }
-
   h2 {
-    font-size: 1.5rem; /* Adjust heading size */
+    font-size: 1.5rem;
   }
-
   .h3 {
-    font-size: 1.2rem; /* Adjust price font size */
+    font-size: 1.2rem;
   }
-
   .product-description {
-    font-size: 0.9rem; /* Smaller description text */
+    font-size: 0.9rem;
   }
 
   .product-description.collapsed {
-    max-height: 7.5em; /* Approximately 5 lines of text */
+    max-height: 7.5em;
     overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    text-overflow: ellipsis;
   }
-
   .show-more-link {
     font-size: 0.85rem;
   }
 }
 
 @media (min-width: 768px) {
-  /* Styles for 'md' (768px) and larger screens */
-  /* Ensure thumbnails are still horizontal on larger screens as requested */
   .gallery-thumbs-scroll {
-    overflow-x: hidden; /* Keep horizontal scrolling */
-    overflow-y: hidden; /* No vertical scrolling */
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
-
   .product-description.collapsed {
-    max-height: 10em; /* Adjust based on desired lines for desktop */
+    max-height: 10em;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 }
 
-/* General Styling (can be moved to global if common) */
 .product-details-card {
   border: none;
 }
 
 .details-img-wrapper-select {
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
 }
 
 .show-more-link {
