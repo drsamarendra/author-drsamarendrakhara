@@ -18,7 +18,7 @@
 }
 
 .carousel-img-enhanced {
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
     height: 450px;
     filter: brightness(0.85) contrast(1.08);
