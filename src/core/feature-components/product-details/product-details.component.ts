@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { ProductService } from '../../shared-service/product.service';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ProductService } from '../../shared-service/product.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,24 +12,32 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   public productList: any[] = [];
   public product: any;
-  public id: number = 0;
   public selectedImage: string | null = null;
-  thumbStartIndex = 0;
-  maxThumbs = 4; // Show 4 thumbnails at a time
+  public thumbStartIndex = 0;
+  public maxThumbs = 4; // Show 4 thumbnails at a time
   private productDetailsSubscription?: Subscription;
-  showFullDescription = false;
+  public showFullDescription = false;
 
-  constructor(
-    private route: ActivatedRoute,
-    private location: Location,
-    private productService: ProductService,
-  ) {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
-  }
+  constructor(private router: Router, private productService: ProductService) { }
 
   ngOnInit(): void {
+
+    if (history.state && history.state.data) {
+      const product = history.state.data;
+      console.log('Product Details:', product);
+      if (product?.id) {
+        this.getproductDetails(product.id)
+      } else {
+        this.goBackToProductPage();
+      }
+    } else {
+      this.goBackToProductPage();
+    }
+  }
+
+  private getproductDetails(id: number) {
     this.productDetailsSubscription =
-      this.productService.handleProductDetails(this.id).subscribe(
+      this.productService.handleProductDetails(id).subscribe(
         response => {
           this.product = response;
           if (this.product?.imageUrls?.length) {
@@ -41,8 +48,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       );
   }
 
-  goBack() {
-    this.location.back();
+  goBackToProductPage() {
+    this.router.navigate(['/products']);
   }
 
   buyOnWhatsApp() {
@@ -62,11 +69,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     this.selectedImage = img;
   }
 
-  scrollThumbs(direction: 'up' | 'down') {
+  scrollThumbs(direction: 'left' | 'right') {
     if (!this.product?.imageUrls) return;
-    if (direction === 'up' && this.thumbStartIndex > 0) {
+    if (direction === 'left' && this.thumbStartIndex > 0) {
       this.thumbStartIndex--;
-    } else if (direction === 'down' && this.thumbStartIndex + this.maxThumbs < this.product.imageUrls.length) {
+    } else if (direction === 'right' && this.thumbStartIndex + this.maxThumbs < this.product.imageUrls.length) {
       this.thumbStartIndex++;
     }
   }
