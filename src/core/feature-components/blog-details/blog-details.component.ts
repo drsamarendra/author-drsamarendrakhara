@@ -29,9 +29,9 @@ export class BlogDetailsComponent implements OnInit {
   }
 
   public handelBlog(step: string = 'next | previous | first') {
-    if("next" == step) {
-      this.blog = this.handleFetchBlog(this.blog.id + 1); 
-    } else if("previous" == step) {
+    if ("next" == step) {
+      this.blog = this.handleFetchBlog(this.blog.id + 1);
+    } else if ("previous" == step) {
       this.blog = this.handleFetchBlog(this.blog.id - 1);
     }
     this.hasNextBlog = this.isPresnetBlog(this.blog.id + 1);
