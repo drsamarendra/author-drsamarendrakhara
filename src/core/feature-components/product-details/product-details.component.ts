@@ -24,7 +24,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
     if (history.state && history.state.data) {
       const product = history.state.data;
-      console.log('Product Details:', product);
       if (product?.id) {
         this.getproductDetails(product.id)
       } else {
