@@ -35,6 +35,27 @@ export class BlogService {
     );
   }
 
+  public getLatestPostList(): Observable<any[]> {
+    if (this.blogList.length > 0) {
+      return of(this.formatBlogData());
+    }
+
+    return this.getblogList().pipe(
+      map(() => {
+        if (this.blogList.length === 0) {
+          this.blogList = [];
+        }
+        return this.formatBlogData();
+      })
+    );
+  }
+
+  private formatBlogData() {
+    return this.blogList
+      .filter((item: any) => item.isDisplayFrontPage)
+      .sort((a: any, b: any) => a.data - b.data);
+  }
+
   public isBlogPresnetById(id: number) {
     return this.blogList.some(blog => blog.id === id);
   }
