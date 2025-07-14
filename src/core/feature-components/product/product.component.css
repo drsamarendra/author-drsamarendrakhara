@@ -248,23 +248,6 @@
   font-size: 1rem !important;
 }
 
-@media (min-width: 768px) {
-
-  .banner-content h2,
-  .banner-content .fs-md-2 {
-    font-size: 2rem !important;
-  }
-
-  .banner-content .lead,
-  .banner-content .fs-md-5 {
-    font-size: 1.25rem !important;
-  }
-
-  .product-banner {
-    margin-top: 25%;
-  }
-}
-
 @media (max-width: 991.98px) {
   .product-banner {
     flex-direction: column !important;
@@ -317,6 +300,20 @@
   .btn {
     width: 100%;
     margin-bottom: 0.5rem;
+  }
+
+  .banner-content h2,
+  .banner-content .fs-md-2 {
+    font-size: 2rem !important;
+  }
+
+  .banner-content .lead,
+  .banner-content .fs-md-5 {
+    font-size: 1.25rem !important;
+  }
+
+  .product-banner {
+    margin-top: 25%;
   }
 }
 
