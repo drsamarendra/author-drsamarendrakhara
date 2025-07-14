@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from '../../shared-service/blog.service';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-
-  constructor() { }
+  public blogList: any[] = [];
+  constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
+    this.blogService.handleBlogList().subscribe((data: any) => {
+      this.blogList = data;
+    }, (error: any) => {
+      console.error('Error fetching blog list:', error);
+    });
   }
 
 }

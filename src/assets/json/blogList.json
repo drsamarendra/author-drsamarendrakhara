@@ -1,32 +1,35 @@
 [
   {
     "id": 1,
-    "title": "The Importance of Mental Health",
+    "title": "How climate change is threatening a beloved, delicate heritage mango",
     "author": "Dr. Samarendra Khara",
     "date": "2025-10-01",
+    "isDisplayFrontPage": true,
     "summary": "Discover why mental health matters and how you can take steps to improve your well-being every day.",
     "description": "Mental health is crucial for overall well-being. Learn about its importance and ways to enhance your mental health.",
-    "image": "assets/blog/b1.jpeg",
-    "link": "#"
+    "image": "assets/blog/b1.jpg",
+    "link": "https://indianexpress.com/article/cities/kolkata/west-bengal-climate-change-threat-beloved-delicate-heritage-mango-9393943/"
   },
   {
     "id": 2,
     "title": "Tips for a Balanced Lifestyle",
     "author": "Dr. Samarendra Khara",
     "date": "2023-10-01",
+    "isDisplayFrontPage": true,
     "summary": "Simple and effective tips to help you maintain a healthy balance between work, life, and self-care.",
     "description": "Explore practical strategies for achieving a balanced lifestyle that promotes mental and physical well-being.",
-    "image": "assets/blog/b2.png",
+    "image": "assets/blog/b2.jpeg",
     "link": "#"
   },
   {
     "id": 3,
-    "title": "Understanding Psychology",
+    "title": "সারেঙ্গা আম",
     "author": "Dr. Samarendra Khara",
     "date": "2024-10-01",
+    "isDisplayFrontPage": true,
     "summary": "An introduction to psychology and how understanding it can help you in daily life.",
-    "description": "Learn the basics of psychology and how it can enhance your understanding of human behavior and relationships.",
-    "image": "assets/blog/b3.webp",
+    "description": "সারেঙ্গা আম হলো একটি বিশেষ প্রকারের আম।মে মাসের মাঝামাঝি সময় থেকে পাকা শুরু করে এবং প্রায় ১৫ দিনের মধ্যে পেকে যায়। এটি আকারে ছোট, ওজন প্রায় ১০০ থেকে ১৫০ গ্রাম এবং এর ত্বক পাতলা ও রসালো।কথিত আছে, এই আমগুলি নাকি নবাবদের দরজার কাছে সারঙ্গী বাজানোর জন্য সঙ্গীতশিল্পীদের উৎসর্গীকৃত ছিল।",
+    "image": "assets/blog/Sarenga_mango.jpg",
     "link": "#"
   }
 ]

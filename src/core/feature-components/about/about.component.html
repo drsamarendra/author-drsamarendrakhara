@@ -106,29 +106,39 @@
       </div>
     </div>
     <div class="col-lg-7">
-      <div class="p-4 rounded-4 shadow bg-white h-100 border-start border-4 border-success">
-        <h2 class="mb-3 text-success">Why work with me?</h2>
-        <p class="fs-5 text-dark mb-4">
-          <span class="fst-italic text-secondary">"আমি প্রতিটি কাজকে নিষ্ঠা ও যত্নের সাথে করি। আমার লক্ষ্য সমাজের প্রতি ইতিবাচক প্রভাব রাখা এবং পাঠকের মনের বিকাশ ঘটানো।"</span>
-        </p>
-        <div class="bg-light p-3 rounded-3 border-start border-4 border-primary mb-3">
-          <p class="mb-1 fst-italic">
-            আমি বিশ্বাস করি জ্ঞান ও কল্পনাশক্তির সমন্বয়ে পাঠকদের অনুপ্রাণিত করা সম্ভব। আমার বই ও অভিজ্ঞতা থেকে আপনি পেতে পারেন সমৃদ্ধ শিক্ষা ও প্রকৃতির প্রতি ভালোবাসা।
-          </p>
-          <div class="d-flex align-items-center mt-3">
-            <img src="assets/author-image.jpg" alt="Dr. Samarendra Nath Khara" class="rounded-circle me-2" style="width: 48px; height: 48px; object-fit: cover;">
-            <div>
-              <span class="fw-bold text-primary">Dr.Samarendra Nath Khara</span><br>
-              <span class="text-muted small">লেখক ও কৃষি বিজ্ঞানী</span>
+      <!-- Image Carousel Start (Dynamic from Bloglist) -->
+      <!--
+        In your about.component.ts, define:
+        blogCarouselList = [
+          { image: 'assets/blog1.jpg', title: 'Blog Title 1', caption: 'Blog caption 1' },
+          ...
+        ];
+      -->
+      <div id="aboutCarousel" class="carousel slide shadow rounded-4" data-bs-ride="carousel" style="height:320px;">
+        <div class="carousel-inner" style="height:100%;">
+          <div *ngFor="let item of blogList; let i = index" class="carousel-item" [class.active]="i === 0" style="height:100%;">
+            <img [src]="item.image" class="d-block w-100 rounded-4" [alt]="item.title" style="height:320px; object-fit:cover; object-position:center;">
+            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2">
+              <h5 class="text-white">{{ item.title }}</h5>
+              <p class="text-white-50">{{ item.caption }}</p>
             </div>
           </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
+      <!-- Image Carousel End -->
     </div>
   </div>
 </div>
 
-<div class="container my-5">
+<!-- <div class="container my-5">
   <div class="row">
     <div class="col-lg-10 mx-auto">
       <div class="p-4 rounded-4 shadow bg-light border-start border-4 border-primary">
@@ -147,4 +157,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
