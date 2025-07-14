@@ -1,28 +1,28 @@
 [
   {
     "id": 1,
-    "title": "Mindful Living",
-    "author": "Dr. Samarendra Khara",
-    "description": "A practical guide to mindfulness and living a balanced life.",
+    "title": "আমের জানা ও অজানা",
+    "author": "Dr. Samarendra Nath Khara",
+    "description": "A captivating journey through the history, origin, culture, and science of the beloved mango, tracing how it earned its name and place in our hearts.",
     "image": "assets/books/b1.jpg"
   },
   {
     "id": 2,
-    "title": "The Psychology of Success",
+    "title": "ইতিহাস প্রসিদ্ধ মুর্শিদাবাদ জেলার আম বৈচিত্র উৎপাদন ও বিপণন",
     "author": "Dr. Samarendra Khara",
-    "description": "Explore the mental habits and strategies behind personal and professional success.",
+    "description": "Explore the mental history of the Murshibad region, and relation between Mango and Nawab of Murshibad ",
     "image": "assets/books/b2.jpg"
   },
   {
     "id": 3,
-    "title": "Healing from Within",
+    "title": "মালদহের আম ও তার ইতিবৃত্ত",
     "author": "Dr. Samarendra Khara",
     "description": "Discover techniques for emotional healing and self-growth.",
     "image": "assets/books/b3.jpg"
   },
   {
     "id": 4,
-    "title": "Healing from Within",
+    "title": "আধুনিক পদ্ধতিতে আমচাষ ও প্রক্রিয়াকরণ",
     "author": "Dr. Samarendra Khara",
     "description": "Discover techniques for emotional healing and self-growth.",
     "image": "assets/books/b4.jpg"
