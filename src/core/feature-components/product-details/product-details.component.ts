@@ -36,7 +36,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   buyOnWhatsApp() {
-    const phone = '919999999999'; // Replace with your WhatsApp number (with country code, no +)
+    const phone = '918697219908'; // Replace with your WhatsApp number (with country code, no +)
     const text = encodeURIComponent(
       `Hello, I am interested in buying the book "${this.product?.title}" by ${this.product?.author}.`
     );
