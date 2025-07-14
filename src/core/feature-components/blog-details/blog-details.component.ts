@@ -34,7 +34,6 @@ export class BlogDetailsComponent implements OnInit {
     } else if("previous" == step) {
       this.blog = this.handleFetchBlog(this.blog.id - 1);
     }
-    console.log("blog", this.blog.id);
     this.hasNextBlog = this.isPresnetBlog(this.blog.id + 1);
     this.hasPreviousBlog = this.isPresnetBlog(this.blog.id - 1);
   }
