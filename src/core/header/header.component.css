@@ -16,6 +16,9 @@
   padding: 0.5rem 1rem;
   transition: color 0.2s;
 }
+.navbar-toggler-icon{
+  font-size: smaller;
+}
 
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link:focus,
@@ -55,7 +58,7 @@
 
 .header-wrapper.header-collapsed .navbar-brand span,
 .header-wrapper.header-collapsed .navbar-brand {
-  font-size: 1.1rem !important;
+  font-size: 1rem !important;
   transition: font-size 0.2s;
 }
 
@@ -81,6 +84,17 @@
   top: 0;
   z-index: 99;
 }
+
+.collapsing-animate {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.collapsing-animate:not(.show) {
+  opacity: 0;
+}
+.author-name{
+    color: #0d6efd;
+  }
 
 @media (max-width: 991.98px) {
   .navbar-brand {

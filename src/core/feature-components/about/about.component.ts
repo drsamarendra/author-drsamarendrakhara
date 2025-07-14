@@ -15,7 +15,8 @@ export class AboutComponent implements OnInit, OnDestroy {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.blogServiceSubscription = this.blogService.getLatestPostList().subscribe(data => {
+    this.blogServiceSubscription = this.blogService.getLatestPostList
+    ().subscribe(data => {
       this.blogList = data;
     });
   }

@@ -27,17 +27,16 @@
       </div>
     </div>
 
-    <!-- Header/Navbar -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm fade-in-up py-2" id="mainNavbar">
         <div class="container">
           <a class="navbar-brand d-flex align-items-center" routerLink="/home">
-            <span class="me-2" style="font-size:2rem; color:#0d6efd;">
+            <span class="me-2">
               <img src="assets/author-logo.png" style="width:35px; height:35px; object-fit:contain;">
             </span>
-            <span class="fw-bold" style="color:#0d6efd;">Dr.Samarendra Nath Khara</span>
+            <span class="fw-bold author-name">Dr. Samarendra Nath Khara</span>
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          <button #navbarToggler class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,19 +47,19 @@
                 <a class="nav-link"
                   [class.active]="activeNav === 'home'"
                   routerLink="/home" routerLinkActive="active"
-                  (click)="setActiveNav('home', $event)">Home</a>
+                  (click)="setActiveNav('home', $event); navbarToggler.click()">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link"
                   [class.active]="activeNav === 'blog'"
                   routerLink="/blog" routerLinkActive="active"
-                  (click)="setActiveNav('blog', $event)">Blog</a>
+                  (click)="setActiveNav('blog', $event); navbarToggler.click()">Blog</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link"
                   [class.active]="activeNav === 'products'"
                   routerLink="/products" routerLinkActive="active"
-                  (click)="setActiveNav('products', $event)">Products</a>
+                  (click)="setActiveNav('products', $event); navbarToggler.click()">Products</a>
               </li>
             </ul>
             <a href="https://api.whatsapp.com/send/?phone=918900082669&text&type=phone_number&app_absent=0"

@@ -259,6 +259,10 @@
   .banner-content .fs-md-5 {
     font-size: 1.25rem !important;
   }
+
+  .product-banner {
+    margin-top: 25%;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -266,6 +270,7 @@
     flex-direction: column !important;
     text-align: center;
     padding: 1.2rem 0.5rem;
+    margin-top: 25%;
   }
 
   .banner-content {

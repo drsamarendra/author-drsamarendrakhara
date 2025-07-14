@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
+  @ViewChild('navbarCollapse') navbarCollapse!: ElementRef;
   isCollapsed = false;
   activeNav: string = 'home';
 
@@ -47,6 +48,14 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   setActiveNav(nav: string, event: Event) {
     this.activeNav = nav;
     event.preventDefault();
+    const collapseEl = this.navbarCollapse?.nativeElement;
+    if (collapseEl && collapseEl.classList.contains('show')) {
+      collapseEl.classList.add('collapsing-animate');
+      setTimeout(() => {
+        collapseEl.classList.remove('show');
+        collapseEl.classList.remove('collapsing-animate');
+      }, 300); // Match the CSS transition duration
+    }
   }
 
   scrollToSection(event?: Event) {
@@ -63,4 +72,5 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     //event?.preventDefault();
     //this.viewportScroller.scrollToAnchor('region-section');
   }
+
 }

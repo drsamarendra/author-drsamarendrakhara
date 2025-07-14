@@ -72,6 +72,9 @@
         padding: 0.8rem 1rem;
         font-size: 1rem;
     }
+    .enhanced-carousel {
+        margin-top: 25%;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -81,5 +84,8 @@
         left: 2%;
         right: 2%;
         bottom: 1rem;
+    }
+    .enhanced-carousel {
+        margin-top: 25%;
     }
 }
