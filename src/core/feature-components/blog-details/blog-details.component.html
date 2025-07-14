@@ -4,9 +4,23 @@
     <div class="col-lg-9">
       <div class="card shadow-lg border-0 p-4 blog-details-card">
         <div class="mb-4">
-          <button class="btn btn-outline-secondary mb-3" (click)="goBackToBlogPage()">
-            <i class="fas fa-arrow-left mr-2"></i> Back to Blogs
-          </button>
+          <div class="row align-items-center">
+            <div class="col">
+              <button class="btn btn-outline-secondary mb-3" (click)="goBackToBlogPage()">
+                <i class="bi bi-arrow-left mr-2"></i> Back to Blogs
+              </button>
+            </div>
+            <div class="col-auto text-end">
+              <i class="bi bi-arrow-left-circle-fill text-secondary fs-3 me-2 blog-arrow"
+                 (click)="handelBlog('previous')"
+                 [class.disabled]="!hasPreviousBlog"
+                 title="Previous Blog"></i>
+              <i class="bi bi-arrow-right-circle-fill text-secondary fs-3 blog-arrow"
+                 (click)="handelBlog('next')"
+                 [class.disabled]="!hasNextBlog"
+                 title="Next Blog"></i>
+            </div>
+          </div>
           <h1 class="display-5 fw-bold text-primary mb-2">{{ blog?.title }}</h1>
           <div class="mb-3 text-muted small">
             <i class="fas fa-user"></i> {{ blog?.author }} &nbsp;|&nbsp;

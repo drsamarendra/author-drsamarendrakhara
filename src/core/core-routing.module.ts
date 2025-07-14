@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'blog-details',
     component: BlogDetailsComponent
   },
+  {
+    path: '**',
+    redirectTo: 'home'
+  },
 ];
 
 @NgModule({
