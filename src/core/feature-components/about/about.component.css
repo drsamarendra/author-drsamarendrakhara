@@ -1,0 +1,17 @@
+.carousel-outer-wrapper {
+    height: 650px;
+    width: 450px;
+    margin-left: 30%;
+}
+
+
+.carousel-inner-wrapper {
+    height: 100%;
+}
+
+.carousel-item-wrapper {
+    width: 100%;
+    height: auto;
+    max-height: 650px;
+    object-fit: contain;
+}

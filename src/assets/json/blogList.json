@@ -20,16 +20,6 @@
     "description": "Explore practical strategies for achieving a balanced lifestyle that promotes mental and physical well-being.",
     "image": "assets/blog/b2.jpeg",
     "link": "#"
-  },
-  {
-    "id": 3,
-    "title": "সারেঙ্গা আম",
-    "author": "Dr. Samarendra Khara",
-    "date": "2024-10-01",
-    "isDisplayFrontPage": true,
-    "summary": "An introduction to psychology and how understanding it can help you in daily life.",
-    "description": "সারেঙ্গা আম হলো একটি বিশেষ প্রকারের আম।মে মাসের মাঝামাঝি সময় থেকে পাকা শুরু করে এবং প্রায় ১৫ দিনের মধ্যে পেকে যায়। এটি আকারে ছোট, ওজন প্রায় ১০০ থেকে ১৫০ গ্রাম এবং এর ত্বক পাতলা ও রসালো।কথিত আছে, এই আমগুলি নাকি নবাবদের দরজার কাছে সারঙ্গী বাজানোর জন্য সঙ্গীতশিল্পীদের উৎসর্গীকৃত ছিল।",
-    "image": "assets/blog/Sarenga_mango.jpg",
-    "link": "#"
   }
+  
 ]
