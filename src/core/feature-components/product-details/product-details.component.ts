@@ -1,38 +1,55 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { GetApiDataService } from 'src/core/shared-service/get-api-data.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ProductService } from '../../shared-service/product.service';
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   public productList: any[] = [];
   public product: any;
+  public selectedImage: string | null = null;
+  public thumbStartIndex = 0;
+  public maxThumbs = 4; // Show 4 thumbnails at a time
+  private productDetailsSubscription?: Subscription;
+  public showFullDescription = false;
 
-  constructor(
-    private route: ActivatedRoute,
-    private location: Location,
-    private getApiDataService: GetApiDataService,
-  ) {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-  }
+  constructor(private router: Router, private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.getApiDataService.getApiData('json/productList.json').subscribe(
-      response => {
-        this.productList = response.data;
-        const id = Number(this.route.snapshot.paramMap.get('id'));
-        this.product = this.productList.find(p => p.id === id);
+
+    if (history.state && history.state.data) {
+      const product = history.state.data;
+      console.log('Product Details:', product);
+      if (product?.id) {
+        this.getproductDetails(product.id)
+      } else {
+        this.goBackToProductPage();
       }
-    );
+    } else {
+      this.goBackToProductPage();
+    }
   }
 
-  goBack() {
-    this.location.back();
+  private getproductDetails(id: number) {
+    this.productDetailsSubscription =
+      this.productService.handleProductDetails(id).subscribe(
+        response => {
+          this.product = response;
+          if (this.product?.imageUrls?.length) {
+            this.selectedImage = this.product.imageUrls[0];
+            this.thumbStartIndex = 0;
+          }
+        }
+      );
+  }
+
+  goBackToProductPage() {
+    this.router.navigate(['/products']);
   }
 
   buyOnWhatsApp() {
@@ -41,5 +58,27 @@ export class ProductDetailsComponent implements OnInit {
       `Hello, I am interested in buying the book "${this.product?.title}" by ${this.product?.author}.`
     );
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+  }
+
+  get visibleThumbs(): string[] {
+    if (!this.product?.imageUrls) return [];
+    return this.product.imageUrls.slice(this.thumbStartIndex, this.thumbStartIndex + this.maxThumbs);
+  }
+
+  selectImage(img: string) {
+    this.selectedImage = img;
+  }
+
+  scrollThumbs(direction: 'left' | 'right') {
+    if (!this.product?.imageUrls) return;
+    if (direction === 'left' && this.thumbStartIndex > 0) {
+      this.thumbStartIndex--;
+    } else if (direction === 'right' && this.thumbStartIndex + this.maxThumbs < this.product.imageUrls.length) {
+      this.thumbStartIndex++;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.productDetailsSubscription?.unsubscribe();
   }
 }

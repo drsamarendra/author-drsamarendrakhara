@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { GetApiDataService } from 'src/core/shared-service/get-api-data.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { ProductService } from '../../shared-service/product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, OnDestroy {
 
+  private productSubscription?: Subscription;
   public isGridView: boolean = false; // Default to list view
   public searchText: string = '';
   public constProductList: any[] = [];
@@ -16,30 +18,30 @@ export class ProductComponent implements OnInit {
 
 
   constructor(
-    private getApiDataService: GetApiDataService,
-    private router: Router
+    private router: Router,
+    private productService: ProductService
   ) { }
 
   ngOnInit(): void {
-    this.getApiDataService.getApiData('json/productList.json').subscribe(
+    this.productSubscription = this.productService.handleListDetails().subscribe(
       response => {
-        this.constProductList = response.data;
-        this.workerProductList = response.data.map((obj: any) => ({ ...obj }));
+        this.constProductList = response;
+        this.workerProductList = response.map((obj: any) => ({ ...obj }));
         this.filterProducts();
       }
     );
   }
 
 
-  filterProducts(): void {
+  public filterProducts(): void {
     this.workerProductList = this.getProducts()
   }
 
-  toggleView(): void {
+  public toggleView(): void {
     this.isGridView = !this.isGridView;
   }
 
-  getProducts() {
+  public getProducts() {
     if (!this.searchText) {
       return this.constProductList;
     }
@@ -48,8 +50,19 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  goToDetails(id: number) {
-    this.router.navigate(['/product-details', id]);
+  public goToDetails(product: any): void {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        data: product
+      }
+    };
+    this.router.navigateByUrl('/product-details', navigationExtras);
+  }
+
+
+
+  ngOnDestroy(): void {
+    this.productSubscription?.unsubscribe();
   }
 
 }
