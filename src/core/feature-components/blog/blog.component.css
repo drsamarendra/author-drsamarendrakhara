@@ -77,9 +77,9 @@
     font-size: 1.1rem;
   }
 
-  .blog-wrapper {
+  /* .blog-wrapper {
     margin-top: 25%;
-  }
+  } */
 }
 
 @media (max-width: 767.98px) {
@@ -95,7 +95,7 @@
     border-radius: 0.7rem;
   }
 
-  .blog-wrapper {
+  /* .blog-wrapper {
     margin-top: 25%;
-  }
+  } */
 }

@@ -47,19 +47,19 @@
                 <a class="nav-link"
                   [class.active]="activeNav === 'home'"
                   routerLink="/home" routerLinkActive="active"
-                  (click)="setActiveNav('home', $event); navbarToggler.click()">Home</a>
+                  (click)="setActiveNav('home', $event); closeNavbarOnMobile(navbarToggler)">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link"
                   [class.active]="activeNav === 'blog'"
                   routerLink="/blog" routerLinkActive="active"
-                  (click)="setActiveNav('blog', $event); navbarToggler.click()">Blog</a>
+                  (click)="setActiveNav('blog', $event); closeNavbarOnMobile(navbarToggler)">Blog</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link"
                   [class.active]="activeNav === 'products'"
                   routerLink="/products" routerLinkActive="active"
-                  (click)="setActiveNav('products', $event); navbarToggler.click()">Products</a>
+                  (click)="setActiveNav('products', $event); closeNavbarOnMobile(navbarToggler)">Products</a>
               </li>
             </ul>
             <a href="https://api.whatsapp.com/send/?phone=918900082669&text&type=phone_number&app_absent=0"

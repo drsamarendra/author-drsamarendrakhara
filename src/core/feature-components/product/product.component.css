@@ -253,7 +253,7 @@
     flex-direction: column !important;
     text-align: center;
     padding: 1.2rem 0.5rem;
-    margin-top: 25%;
+    /* margin-top: 25%; */
   }
 
   .banner-content {
@@ -312,9 +312,9 @@
     font-size: 1.25rem !important;
   }
 
-  .product-banner {
+  /* .product-banner {
     margin-top: 25%;
-  }
+  } */
 }
 
 .pricing-area {

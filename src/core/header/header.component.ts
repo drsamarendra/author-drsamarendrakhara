@@ -7,17 +7,14 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements OnInit {
   @ViewChild('navbarCollapse') navbarCollapse!: ElementRef;
-  isCollapsed = false;
-  activeNav: string = 'home';
+  
+  public isCollapsed = false;
+  public activeNav: string = 'home';
 
-  constructor(
-    private viewportScroller: ViewportScroller,
-    private router: Router
-  ) {
+  constructor(private router: Router) {}
 
-  }
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -33,14 +30,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
-    // No router event logic here
-  }
-
-
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // Use window.pageYOffset for better mobile compatibility
     const scrollY = window.scrollY !== undefined ? window.scrollY : window.pageYOffset;
     this.isCollapsed = scrollY > 80;
   }
@@ -58,19 +49,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
   }
 
-  scrollToSection(event?: Event) {
-    // event?.preventDefault();
-    //this.viewportScroller.scrollToAnchor('carousel-section');
-  }
-
-  scrollToAbout(event?: Event) {
-    //event?.preventDefault();
-    //this.viewportScroller.scrollToAnchor('about-section');
-  }
-
-  scrollToRegion(event?: Event) {
-    //event?.preventDefault();
-    //this.viewportScroller.scrollToAnchor('region-section');
+  closeNavbarOnMobile(navbarToggler: HTMLElement) {
+    if (window.innerWidth < 992) { // Bootstrap lg breakpoint
+      navbarToggler.click();
+    }
   }
 
 }

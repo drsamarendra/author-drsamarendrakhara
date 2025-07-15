@@ -5,7 +5,7 @@ html, body {
   overflow-x: hidden;
 }
 
-img, video {
+/* img, video {
   max-width: 100%;
   height: auto;
   display: block;
@@ -32,12 +32,12 @@ img, video {
     padding-right: 4px;
     padding-left: 4px;
   }
-}
+} */
 
 /* Utility for hiding on mobile/desktop */
-.d-mobile-none { display: block !important; }
+/* .d-mobile-none { display: block !important; }
 .d-desktop-none { display: none !important; }
 @media (max-width: 767.98px) {
   .d-mobile-none { display: none !important; }
   .d-desktop-none { display: block !important; }
-}
+} */
