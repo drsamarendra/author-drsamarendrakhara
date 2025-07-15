@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GetApiDataService } from 'src/core/shared-service/get-api-data.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { GetApiDataService } from 'src/core/shared-service/get-api-data.service'
   templateUrl: './latest-post.component.html',
   styleUrls: ['./latest-post.component.css']
 })
-export class LatestPostComponent implements OnInit {
+export class LatestPostComponent implements OnInit, OnDestroy {
 
   public allCards = [];
   public interval: any;
@@ -20,7 +20,7 @@ export class LatestPostComponent implements OnInit {
     readTime: string;
     image: string;
     avatar: string;
-    date:string;
+    date: string;
     order: number;
     link: string;
   }[] = [];
@@ -47,7 +47,7 @@ export class LatestPostComponent implements OnInit {
     this.interval = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.allCards.length;
       this.updateVisibleCards();
-    }, 4000); // Slide every 3 seconds
+    }, 4000); // Slide every 4 seconds
   }
 
   ngOnDestroy(): void {
