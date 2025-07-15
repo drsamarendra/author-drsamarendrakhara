@@ -38,6 +38,12 @@ export class ApiDetailsService {
       .setUrl('json/productDetails.json')
       .setMethod('get')
       .setHeader(this.getHeaders()),
+       new ApiDetails()
+      .setBaseUrl(this.baseUrl)
+      .setVersion(this.version)
+      .setUrl('json/newspaper.json')
+      .setMethod('get')
+      .setHeader(this.getHeaders()),
   ];
 
   public getApiDetails(url: string): ApiDetails {

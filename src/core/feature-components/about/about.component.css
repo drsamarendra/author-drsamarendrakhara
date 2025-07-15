@@ -16,3 +16,14 @@
     object-fit: contain;
     cursor: pointer;
 }
+
+
+.transition-container {
+  transition: transform 0.6s ease;
+  display: flex;
+  gap: 1rem;
+}
+
+.card-wrapper {
+  flex: 0 0 32%;
+}

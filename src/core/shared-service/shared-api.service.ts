@@ -52,7 +52,7 @@ export class SharedApiService {
     );
   }
 
-  request<T>(method: string, url: string, body?: any, header?: any) {
+  public request<T>(method: string, url: string, body?: any, header?: any) {
     let response: Observable<ResponseData>;
     if (method === 'get') {
       response = this.get<T>(url, header);

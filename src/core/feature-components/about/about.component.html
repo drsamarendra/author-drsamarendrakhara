@@ -107,7 +107,7 @@
   </div>
 </div>
 
-<div class="container my-5">
+<!-- <div class="container my-5">
   <div class="row align-items-center">
     <div class="col-md-7 text-center mb-4 mb-lg-0">
       <div class="p-2 d-inline-block rounded shadow" style="background: linear-gradient(135deg,#e0f7fa 60%,#fff);">
@@ -116,14 +116,6 @@
       </div>
     </div>
     <div class="col-md-5">
-      <!-- Image Carousel Start (Dynamic from Bloglist) -->
-      <!--
-        In your about.component.ts, define:
-        blogCarouselList = [
-          { image: 'assets/blog1.jpg', title: 'Blog Title 1', caption: 'Blog caption 1' },
-          ...
-        ];
-      -->
       <div id="aboutCarousel" class="carousel slide shadow rounded-4 carousel-outer-wrapper" data-bs-ride="carousel">
         <div class="carousel-inner carousel-inner-wrapper">
           <div *ngFor="let item of blogList; let i = index" class="carousel-item" [class.active]="i === 0">
@@ -139,28 +131,77 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <!-- Image Carousel End -->
     </div>
   </div>
-</div>
+</div> -->
+<app-latest-post></app-latest-post>
 
 <!-- <div class="container my-5">
   <div class="row">
     <div class="col-lg-10 mx-auto">
       <div class="p-4 rounded-4 shadow bg-light border-start border-4 border-primary">
         <h2 class="mb-3 text-primary d-flex align-items-center">
-          <i class="bi bi-lightbulb-fill me-2 fs-2"></i> My Philosophy 
+          <i class="bi bi-lightbulb-fill me-2 fs-2"></i> Latest Posts 
         </h2>
-        <p class="fs-5 text-dark">
-          আমি বিশ্বাস করি প্রতিটি মানুষের মধ্যে রয়েছে সৃষ্টিশীলতা ও পরিবর্তনের সম্ভাবনা। আমি চাই আমার বই, কর্মশালা ও অভিজ্ঞতা পাঠকদের মধ্যে কৌতূহল ও মানবিকতার বীজ বপন করুক।
-        </p>
-        <ul class="list-unstyled mb-0 fs-5">
-          <li class="mb-2"><i class="bi bi-heart-fill text-danger me-2"></i> পাঠ্যাভ্যাস ও শিক্ষার প্রতি ভালোবাসা গড়ে তোলা</li>
-          <li class="mb-2"><i class="bi bi-tree-fill text-success me-2"></i> পরিবেশ সচেতনতা ও দায়িত্ববোধ সৃষ্টি</li>
-          <li class="mb-2"><i class="bi bi-people-fill text-info me-2"></i> সৃজনশীল চিন্তা ও স্বাধীন মানসিকতা উৎসাহিত করা</li>
-          <li><i class="bi bi-globe2 text-primary me-2"></i> সকল জীবের প্রতি সহানুভূতি ও সম্মান জাগানো</li>
-        </ul>
+         <div id="aboutCarousel" class="carousel slide shadow rounded-4 carousel-outer-wrapper" data-bs-ride="carousel">
+        <div class="carousel-inner carousel-inner-wrapper">
+          <div *ngFor="let item of blogList; let i = index" class="carousel-item" [class.active]="i === 0">
+            <img [src]="item.image" class="d-block w-100 rounded-4 carousel-item-wrapper" (click)="goToBlogDetails(item)">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="container my-5">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="p-4 rounded-4 shadow bg-white h-100 border-start border-4 border-primary">
+        <span class="badge bg-primary mb-2">TECHNOLOGY</span>
+        <img src="https://via.placeholder.com/800x450" class="img-fluid mb-3" alt="Technology">
+        <h5 class="fw-bold">Advancements in Quantum Computing Break Records</h5>
+        <p class="text-muted">Researchers achieve quantum supremacy with new 256-qubit processor, opening doors to solving complex problems in seconds...</p>
+        <div class="d-flex justify-content-between align-items-center text-muted small">
+          <span><img src="https://via.placeholder.com/60" class="rounded-circle me-2" width="30"> Michael Chen</span>
+          <span>4 min read</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="p-4 rounded-4 shadow bg-white h-100 border-start border-4 border-success">
+        <span class="badge bg-success mb-2">SPORTS</span>
+        <img src="https://via.placeholder.com/800x450" class="img-fluid mb-3" alt="Sports">
+        <h5 class="fw-bold text-dark bg-warning px-1 d-inline">Local Team Wins Championship After Dramatic Final</h5>
+        <p class="text-muted">In an overtime thriller, the underdogs clinched their first title in franchise history with a buzzer-beating three-pointer...</p>
+        <div class="d-flex justify-content-between align-items-center text-muted small">
+          <span><img src="https://via.placeholder.com/60" class="rounded-circle me-2" width="30"> David Park</span>
+          <span>3 min read</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="p-4 rounded-4 shadow bg-white h-100 border-start border-4 border-warning">
+        <span class="badge bg-warning text-dark mb-2">FOOD</span>
+        <img src="https://via.placeholder.com/800x450" class="img-fluid mb-3" alt="Food">
+        <h5 class="fw-bold">The Rise of Plant-Based Fine Dining</h5>
+        <p class="text-muted">Michelin-starred chefs are reinventing haute cuisine with innovative vegetable-focused menus that challenge meat-centric traditions...</p>
+        <div class="d-flex justify-content-between align-items-center text-muted small">
+          <span><img src="https://via.placeholder.com/60" class="rounded-circle me-2" width="30"> Elena Rodriguez</span>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div> -->

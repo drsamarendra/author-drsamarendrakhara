@@ -14,6 +14,7 @@ import { BlogComponent } from './feature-components/blog/blog.component';
 import { ProductComponent } from './feature-components/product/product.component';
 import { ProductDetailsComponent } from './feature-components/product-details/product-details.component';
 import { BlogDetailsComponent } from './feature-components/blog-details/blog-details.component';
+import { LatestPostComponent } from './feature-components/latest-post/latest-post.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { BlogDetailsComponent } from './feature-components/blog-details/blog-det
     BlogComponent,
     ProductComponent,
     ProductDetailsComponent,
-    BlogDetailsComponent 
+    BlogDetailsComponent,
+    LatestPostComponent 
   ],
   imports: [
     CommonModule,
