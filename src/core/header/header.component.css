@@ -108,7 +108,7 @@
 
 @media (max-width: 767.98px) {
   .navbar-custom {
-    position: fixed;
+    /* position: fixed; */
   }
   .navbar-brand {
     font-size: 1rem !important;

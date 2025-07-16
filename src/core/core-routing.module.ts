@@ -7,11 +7,7 @@ import { ProductDetailsComponent } from './feature-components/product-details/pr
 import { BlogDetailsComponent } from './feature-components/blog-details/blog-details.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+  
   {
     path: 'home',
     component: HomeComponent,
@@ -32,6 +28,11 @@ const routes: Routes = [
   {
     path: 'blog-details',
     component: BlogDetailsComponent
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
   {
     path: '**',
