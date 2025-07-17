@@ -1,20 +1,29 @@
 <div class="container my-5 shadow rounded-4">
-    <div class="transition-container">
-        <div class="row g-4">
-            <h3 class="mb-3 text-success d-flex align-items-center">
-                <i class="bi bi-newspaper me-2 fs-2"></i> Latest Posts
-            </h3>
-            <div class="carousel-track d-flex">
-                <div class="col-md-4" *ngFor="let card of visibleCards" style="padding-right: 16px;">
-                    <div class="p-4 rounded-4 shadow bg-white h-100 border-start border-4 border-{{card.color}}">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span>{{card.date}} | {{card.title}}</span>
-                            <a [href]="card.link" target="_blank" rel="noopener" class="ms-2 text-primary text-decoration-underline">Read More</a>
-                        </div>
-                        <img [src]="card.image" class="img-fluid mb-3" [alt]="card.category">
-                    </div>
-                </div>
-            </div>
+  <div class="transition-container px-3 py-4">
+    <h3 class="mb-4 text-success d-flex align-items-center">
+      <i class="bi bi-newspaper me-2 fs-2"></i> Latest Posts
+    </h3>
+
+    <div class="carousel-track d-flex">
+      <div
+        class="col-12 col-sm-6 col-md-4"
+        *ngFor="let card of visibleCards"
+        style="padding-right: 16px;"
+      >
+        <div class="p-4 rounded-4 shadow bg-white h-100 border-start border-4 border-{{card.color}}">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span>{{card.date}} | {{card.title}}</span>
+            <a
+              [href]="card.link"
+              target="_blank"
+              rel="noopener"
+              class="ms-2 text-primary text-decoration-underline"
+              >Read More</a
+            >
+          </div>
+          <img [src]="card.image" class="img-fluid mb-3" [alt]="card.category" />
         </div>
+      </div>
     </div>
+  </div>
 </div>

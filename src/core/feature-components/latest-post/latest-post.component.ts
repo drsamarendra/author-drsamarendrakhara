@@ -7,50 +7,53 @@ import { GetApiDataService } from 'src/core/shared-service/get-api-data.service'
   styleUrls: ['./latest-post.component.css']
 })
 export class LatestPostComponent implements OnInit, OnDestroy {
-
   public allCards = [];
-  public interval: any;
+  public visibleCards: any = [];
   public currentIndex = 0;
-  public visibleCards: {
-    category: string;
-    color: string;
-    title: string;
-    description: string;
-    author: string;
-    readTime: string;
-    image: string;
-    avatar: string;
-    date: string;
-    order: number;
-    link: string;
-  }[] = [];
+  public interval: any;
+  public visibleCardCount = 3;
+
   constructor(private apiService: GetApiDataService) { }
 
   ngOnInit(): void {
     this.apiService.getApiData("json/newspaper.json").subscribe((response: any) => {
       this.allCards = response.data;
-      this.updateVisibleCards();
+      this.setVisibleCardCount();
       this.startAutoSlide();
     });
+
+    window.addEventListener('resize', this.setVisibleCardCount.bind(this));
+  }
+
+  setVisibleCardCount() {
+    const width = window.innerWidth;
+    if (width < 576) {
+      this.visibleCardCount = 1; // mobile
+    } else if (width < 992) {
+      this.visibleCardCount = 2; // tablet
+    } else {
+      this.visibleCardCount = 3; // desktop
+    }
+    this.updateVisibleCards();
   }
 
   updateVisibleCards() {
     const len = this.allCards.length;
-    this.visibleCards = [
-      this.allCards[this.currentIndex % len],
-      this.allCards[(this.currentIndex + 1) % len],
-      this.allCards[(this.currentIndex + 2) % len],
-    ];
+    this.visibleCards = [];
+    for (let i = 0; i < this.visibleCardCount; i++) {
+      this.visibleCards.push(this.allCards[(this.currentIndex + i) % len]);
+    }
   }
 
   startAutoSlide() {
     this.interval = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.allCards.length;
       this.updateVisibleCards();
-    }, 4000); // Slide every 4 seconds
+    }, 4000);
   }
 
   ngOnDestroy(): void {
     clearInterval(this.interval);
+    window.removeEventListener('resize', this.setVisibleCardCount.bind(this));
   }
 }

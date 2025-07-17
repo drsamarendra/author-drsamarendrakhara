@@ -1,12 +1,14 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.css']
 })
-export class TemplateComponent implements OnInit {
+export class TemplateComponent implements OnInit, OnDestroy {
   public myDynamicStyles: any = { 'margin-top': '20px' };
+
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -30,4 +32,7 @@ export class TemplateComponent implements OnInit {
     }
   }
 
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.fixMarginTop.bind(this));
+  }
 }
