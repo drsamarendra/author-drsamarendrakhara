@@ -9,41 +9,24 @@ import { GetApiDataService } from 'src/core/shared-service/get-api-data.service'
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit, OnDestroy {
-  public blogList: any[] = [];
-  private blogServiceSubscription: any;
   public componentData: any = {};
   public languageData: { EN?: any; BN?: any } = {};
-  isEnglish = true;
-  constructor(private blogService: BlogService,
-    private router: Router, private apiData: GetApiDataService) { }
+  public isEnglish = true;
 
+  constructor(private apiData: GetApiDataService) { }
 
   ngOnInit(): void {
-    this.blogServiceSubscription = this.blogService.getLatestPostList().subscribe(data => {
-      this.blogList = data;
-    });
     this.apiData.getApiData('json/language_data.json').subscribe(response => {
       this.languageData = response.data;
-      this.toggleLanguage();
+      this.componentData = this.isEnglish ? this.languageData['EN'] : this.languageData['BN'];
     });
   }
-
-  goToBlogDetails(blog: any): void {
-    const navigationExtras: NavigationExtras = {
-      state: {
-        data: blog
-      }
-    };
-    this.router.navigateByUrl('/blog-details', navigationExtras);
-  }
-
-  ngOnDestroy(): void {
-    this.blogServiceSubscription?.unsubscribe();
-  }
-
 
   toggleLanguage() {
     this.isEnglish = !this.isEnglish;
     this.componentData = this.isEnglish ? this.languageData['EN'] : this.languageData['BN'];
   }
+
+  ngOnDestroy(): void { }
+
 }

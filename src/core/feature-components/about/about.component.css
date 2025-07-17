@@ -1,20 +1,20 @@
 .carousel-outer-wrapper {
-    height: 650px;
-    /* width: 450px; */
-    /* margin-left: 30%; */
+  height: 650px;
+  /* width: 450px; */
+  /* margin-left: 30%; */
 }
 
 
 .carousel-inner-wrapper {
-    height: 100%;
+  height: 100%;
 }
 
 .carousel-item-wrapper {
-    width: 100%;
-    height: auto;
-    max-height: 650px;
-    object-fit: contain;
-    cursor: pointer;
+  width: 100%;
+  height: auto;
+  max-height: 650px;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 
@@ -54,10 +54,12 @@
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 34px;
-  text-align: center;
   line-height: 34px;
   font-weight: bold;
   color: white;
+  text-align: right;
+  padding-right: 13px;
+  user-select: none;
 }
 
 /* The circle inside */
@@ -74,11 +76,46 @@
 }
 
 /* Checked styles */
-input:checked + .slider {
+input:checked+.slider {
   background-color: #4CAF50;
+  text-align: left;
+  padding-left: 13px;
 }
 
 /* Move circle when checked */
-input:checked + .slider::before {
+input:checked+.slider::before {
   transform: translateX(36px);
+}
+
+.label {
+  position: relative; /* Essential for positioning the pseudo-element relative to this div */
+  background-color: #f8f9fa; /* Light background for the "box" */
+  padding-bottom: 20px; /* Add some padding below the content if needed */
+  border-bottom: 1px solid #e0e0e0; /* A subtle line at the bottom of the "box" */
+  margin-bottom: 30px; /* Space between this section and the next */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for the "box" */
+  border-radius: 0.5rem; /* Slightly rounded corners for the "box" */
+}
+
+/* Pseudo-element for the actual "label" part at the top-left */
+.label-text {
+  position: absolute;
+  top: 0; /* Position at the very top of the .label div */
+  left: 0; /* Position at the very left of the .label div */
+  background-color: #0d6efd; /* Bootstrap primary blue, adjust as needed */
+  color: white;
+  padding: 8px 15px;
+  border-top-left-radius: 0.5rem; /* Match the parent's border-radius */
+  border-top-right-radius: 0.5rem; /* Creates a nice tab-like shape */
+  font-weight: bold;
+  font-size: 1rem;
+  z-index: 2; /* Ensures it sits above everything else in this container */
+  width: 100%;
+}
+
+.language-toggle {
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  padding: 3.5px 8px;
 }
