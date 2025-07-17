@@ -3,11 +3,17 @@
     <!-- Text Section -->
     <div class="col-md-7">
       <div class="p-4 rounded-4 shadow bg-white h-100 border-start border-4 border-primary">
+        <div class="language-toggle my-3 d-flex align-items-center">
+          <label class="switch">
+            <input type="checkbox" [checked]="isEnglish" (change)="toggleLanguage()" />
+            <span class="slider round">{{ isEnglish ? 'EN' : 'BE' }}</span>
+          </label>
+        </div>
         <h3 class="mb-3 text-primary d-flex align-items-center">
           Meet Dr. Samarendra Nath Khara
         </h3>
         <p class="lead fs-4 text-dark mb-4">
-          <span class="fw-bold text-success">কৃষি বিজ্ঞানী, লেখক ও সমাজসেবী</span><br>
+          <span class="fw-bold text-success">{{componentData.basicInput.heading}}</span><br>
           <em class="text-secondary fs-5">"প্রকৃতি ও কৃষির প্রতি ভালোবাসা থেকেই জীবনের পথচলা।"</em><br>
           <span class="d-block mt-3">
             ড. খাঁড়া হুগলি জেলার গরলগাছা গ্রামের ভূমিপুত্র এবং বর্তমানে পশ্চিমবঙ্গ সরকারের যুগ্ম উদ্যানপালন অধিকর্তা।
