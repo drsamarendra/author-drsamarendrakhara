@@ -5,7 +5,7 @@
   <div class="language-toggle">
     <label class="switch">
       <input type="checkbox" [checked]="isEnglish" (change)="toggleLanguage()" />
-      <span class="slider round">{{ isEnglish ? 'EN' : 'BN' }}</span>
+      <span class="slider round"><span [innerHTML]=" isEnglish ? 'EN' : 'BN' "></span></span>
     </label>
   </div>
 </div>
@@ -18,11 +18,10 @@
           Meet Dr. Samarendra Nath Khara
         </h3>
         <p class="lead fs-4 text-dark mb-4">
-          <span class="fw-bold text-success">{{componentData?.basicInput?.heading}}</span><br>
-          <em class="text-secondary fs-5">"প্রকৃতি ও কৃষির প্রতি ভালোবাসা থেকেই জীবনের পথচলা।"</em><br>
+          <span class="fw-bold text-success"><span [innerHTML]="componentData?.basicInput?.heading"></span></span><br>
+          <em class="text-secondary fs-5">"<span [innerHTML]="componentData?.basicInput?.subHeading"></span>"</em><br>
           <span class="d-block mt-3">
-            ড. খাঁড়া হুগলি জেলার গরলগাছা গ্রামের ভূমিপুত্র এবং বর্তমানে পশ্চিমবঙ্গ সরকারের যুগ্ম উদ্যানপালন অধিকর্তা।
-            তাঁর লেখনী ও কৃষি গবেষণায় অসাধারণ অবদান রয়েছে।
+            <span [innerHTML]="componentData?.basicInput?.description"></span>
           </span>
         </p>
         <div class="d-flex flex-wrap gap-3 mt-4">
@@ -58,9 +57,7 @@
           <i class="bi bi-book me-2 fs-2"></i> About the Author
         </h3>
         <p class="mb-0 text-dark fs-5">
-          ড. খাঁড়া প্রথম শ্রেণীতে কৃষি স্নাতক এবং উদ্যান বিজ্ঞান বিষয়ে প্রথম শ্রেণীতে প্রথম স্থান অধিকার করে
-          স্নাতকোত্তর পাশ করেন। তিনি ভারতীয় কৃষি গবেষণা ইনস্টিটিউট থেকে জুনিয়র ফেলোশিপ এবং হর্টিকালচার সোসাইটি অফ
-          ইন্ডিয়া থেকে সুবর্ণ জয়ন্তী সন্মান লাভ করেন।
+          <span [innerHTML]="componentData?.aboutAuthor?.description"></span>
         </p>
       </div>
     </div>
@@ -70,15 +67,12 @@
           <i class="bi bi-trophy-fill me-2 fs-2"></i> Achievements
         </h3>
         <ul class="list-unstyled mb-0 fs-5">
-          <li class="mb-2"><i class="bi bi-journal-richtext text-primary me-2"></i> জাতীয় ও স্থানীয় বিভিন্ন পুরস্কারে
-            সম্মানিত</li>
-          <li class="mb-2"><i class="bi bi-award text-warning me-2"></i> আম ও লিচু প্রদর্শনী ও প্রতিযোগিতায় আয়োজক ও
-            বিচারক</li>
-          <li class="mb-2"><i class="bi bi-tree-fill text-success me-2"></i> পরিবেশ ও উদ্যানবিজ্ঞানে উল্লেখযোগ্য অবদান
+          <li class="mb-2"><i class="bi bi-journal-richtext text-primary me-2"></i><span [innerHTML]="componentData?.achievements?.achievement1"></span></li>
+          <li class="mb-2"><i class="bi bi-award text-warning me-2"></i><span [innerHTML]="componentData?.achievements?.achievement2"></span></li>
+          <li class="mb-2"><i class="bi bi-tree-fill text-success me-2"></i><span [innerHTML]="componentData?.achievements?.achievement3"></span>
           </li>
-          <li class="mb-2"><i class="bi bi-mic-fill text-danger me-2"></i> আকাশবাণী ও দূরদর্শনে বিশেষজ্ঞ বক্তা</li>
-          <li><i class="bi bi-people-fill text-info me-2"></i> ২০০টির বেশি কৃষি ও সমাজ উন্নয়নমূলক লেখা বিভিন্ন
-            পত্রিকায় প্রকাশিত</li>
+          <li class="mb-2"><i class="bi bi-mic-fill text-danger me-2"></i><span [innerHTML]="componentData?.achievements?.achievement4"></span></li>
+          <li><i class="bi bi-people-fill text-info me-2"></i><span [innerHTML]="componentData?.achievements?.achievement5"></span></li>
         </ul>
       </div>
     </div>
@@ -91,25 +85,25 @@
           <div class="col-md-3 col-6 mb-3">
             <div class="d-flex align-items-center">
               <i class="bi bi-star-fill text-warning fs-4 me-2"></i>
-              <span class="fw-semibold">সালাম বেঙ্গল সম্মান, ২০০৯</span>
+              <span class="fw-semibold" [innerHTML]="componentData?.awards?.award1"></span>
             </div>
           </div>
           <div class="col-md-3 col-6 mb-3">
             <div class="d-flex align-items-center">
               <i class="bi bi-leaf-fill text-success fs-4 me-2"></i>
-              <span class="fw-semibold">সুবর্ণ জয়ন্তী সম্মান, হর্টিকালচার সোসাইটি অফ ইন্ডিয়া</span>
+              <span class="fw-semibold" [innerHTML]="componentData?.awards?.award1"></span>
             </div>
           </div>
           <div class="col-md-3 col-6 mb-3">
             <div class="d-flex align-items-center">
               <i class="bi bi-bookmark-star-fill text-primary fs-4 me-2"></i>
-              <span class="fw-semibold">জহরলাল নেহেরু স্মৃতি পুরস্কার</span>
+              <span class="fw-semibold" [innerHTML]="componentData?.awards?.award1"></span>
             </div>
           </div>
           <div class="col-md-3 col-6 mb-3">
             <div class="d-flex align-items-center">
               <i class="bi bi-globe2 text-info fs-4 me-2"></i>
-              <span class="fw-semibold">Ph.D. গবেষণা: আম ফল চয়নোত্তর বিষয়</span>
+              <span class="fw-semibold" [innerHTML]="componentData?.awards?.award1"></span>
             </div>
           </div>
         </div>
