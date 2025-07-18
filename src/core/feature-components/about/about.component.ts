@@ -1,6 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BlogService } from '../../shared-service/blog.service';
-import { NavigationExtras, Router } from '@angular/router';
 import { GetApiDataService } from 'src/core/shared-service/get-api-data.service';
 
 @Component({
@@ -10,7 +8,7 @@ import { GetApiDataService } from 'src/core/shared-service/get-api-data.service'
 })
 export class AboutComponent implements OnInit, OnDestroy {
   public componentData: any = {};
-  public languageData: { EN?: any; BN?: any } = {};
+  public languageData: { en?: any; bn?: any } = {};
   public isEnglish = true;
 
   constructor(private apiData: GetApiDataService) { }
@@ -18,13 +16,13 @@ export class AboutComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.apiData.getApiData('json/language_data.json').subscribe(response => {
       this.languageData = response.data;
-      this.componentData = this.isEnglish ? this.languageData['EN'] : this.languageData['BN'];
+      this.componentData = this.isEnglish ? this.languageData['en'] : this.languageData['bn'];
     });
   }
 
   toggleLanguage() {
     this.isEnglish = !this.isEnglish;
-    this.componentData = this.isEnglish ? this.languageData['EN'] : this.languageData['BN'];
+    this.componentData = this.isEnglish ? this.languageData['en'] : this.languageData['bn'];
   }
 
   ngOnDestroy(): void { }
