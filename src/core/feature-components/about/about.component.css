@@ -101,21 +101,20 @@ input:checked+.slider::before {
 .label-text {
   position: absolute;
   top: 0; /* Position at the very top of the .label div */
-  left: 0; /* Position at the very left of the .label div */
+  right: 0; /* Position at the very left of the .label div */
   background-color: #0d6efd; /* Bootstrap primary blue, adjust as needed */
   color: white;
   padding: 8px 15px;
-  border-top-left-radius: 0.5rem; /* Match the parent's border-radius */
-  border-top-right-radius: 0.5rem; /* Creates a nice tab-like shape */
+  border-radius: 0.5rem;
   font-weight: bold;
   font-size: 1rem;
   z-index: 2; /* Ensures it sits above everything else in this container */
-  width: 100%;
+  width: 19%;
 }
 
 .language-toggle {
   position: absolute;
   right: 0;
   z-index: 2;
-  padding: 3.5px 8px;
+  padding: 3.5px 0px;
 }

@@ -1,8 +1,8 @@
 <div class="label">
-  <div class="label-text">
-    Featured Section
+  <div class="label-text col-8">
+    Language
   </div>
-  <div class="language-toggle">
+  <div class="language-toggle col-sm-auto">
     <label class="switch">
       <input type="checkbox" [checked]="isEnglish" (change)="toggleLanguage()" />
       <span class="slider round"><span [innerHTML]=" isEnglish ? 'EN' : 'BN' "></span></span>
