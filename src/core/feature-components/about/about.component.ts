@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GetApiDataService } from 'src/core/shared-service/get-api-data.service';
 
 @Component({
@@ -10,7 +10,6 @@ export class AboutComponent implements OnInit, OnDestroy {
   public componentData: any = {};
   public languageData: any = {};
   public isEnglish = true;
-  public dynamicStyles: any = {};
 
   constructor(private apiData: GetApiDataService) { }
 
@@ -33,25 +32,7 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    this.fixMarginTop();
-  }
-
-  private fixMarginTop() {
-    if (window.innerWidth >= 187 && window.innerWidth <= 357) {
-      this.dynamicStyles = { 'margin-top': '190px' };
-    } else if (window.innerWidth >= 358 && window.innerWidth <= 339) {
-      this.dynamicStyles = { 'margin-top': '150px' };
-    } else if (window.innerWidth >= 340 && window.innerWidth <= 767) {
-      this.dynamicStyles = { 'margin-top': '130px' };
-    } else if (window.innerWidth >= 768) {
-      this.dynamicStyles = { 'margin-top': '100px' };
-    }
-  }
-
   ngOnDestroy(): void {
-    window.removeEventListener('resize', this.fixMarginTop.bind(this));
   }
 
 }
