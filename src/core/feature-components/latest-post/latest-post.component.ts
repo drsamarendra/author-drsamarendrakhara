@@ -17,7 +17,11 @@ export class LatestPostComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.apiService.getApiData("json/newspaper.json").subscribe((response: any) => {
-      this.allCards = response.data;
+      this.allCards = response.data.sort((a: any, b: any) => {
+        const dataA = new Date(a.data);
+        const dateB = new Date(b.data);
+        return dateB.getTime() - dataA.getTime();
+      });
       this.setVisibleCardCount();
       this.startAutoSlide();
     });

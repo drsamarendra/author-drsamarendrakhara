@@ -12,7 +12,7 @@
       >
         <div class="p-4 rounded-4 shadow bg-white h-100 border-start border-4 border-{{card.color}}">
           <div class="d-flex justify-content-between align-items-center mb-2">
-            <span>{{card.date}} | {{card.title}}</span>
+            <span class="text-ellipsis">{{card.date | date:'mediumDate'}} | {{card.title}}</span>
             <a
               [href]="card.link"
               target="_blank"

@@ -31,3 +31,18 @@
     flex: 0 0 33.3333%;
   }
 }
+
+.text-ellipsis {
+  display: flex;
+  text-overflow: ellipsis;
+  /* flex-wrap: nowrap; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 254px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
