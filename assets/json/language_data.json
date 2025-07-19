@@ -1,6 +1,6 @@
 {
-    "BN": {
-        "title": "ডঃ সমরেন্দ্রনাথ খাঁড়া ",
+    "bn": {
+        "title": "ডঃ সমরেন্দ্রনাথ খাঁড়া",
         "basicInput":{
             "heading":"কৃষি বিজ্ঞানী, লেখক ও সমাজসেবী",
             "subHeading":"প্রকৃতি ও কৃষির প্রতি ভালোবাসা থেকেই জীবনের পথচলা।",
@@ -24,7 +24,7 @@
         }
 
     },
-    "EN": {
+    "en": {
        "title": "Dr.Samarendra Nath Khara",
         "basicInput":{
             "heading":"Horticulturist, Author & Social Worker",
