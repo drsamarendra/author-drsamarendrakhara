@@ -26,12 +26,18 @@
           <!-- Sort By: <span id="currentSortOrder">Newest Arrivals</span> -->
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortDropdown">
-          <li><a class="dropdown-item" data-sort-order="newest-arrivals" (click)="onClickSortdp('newest')">Newest
-              Arrivals</a></li>
-          <li><a class="dropdown-item" data-sort-order="price-low-to-high" (click)="onClickSortdp('lowToHigh')">Price:
-              Low to High</a></li>
-          <li><a class="dropdown-item" data-sort-order="price-high-to-low" (click)="onClickSortdp('highToLow')">Price:
-              High to Low</a></li>
+          <li [class.active]="prodSortKey === 'newest'">
+            <a class="dropdown-item" data-sort-order="newest-arrivals" (click)="onClickSortdp('newest')">Newest
+              Arrivals</a>
+          </li>
+          <li [class.active]="prodSortKey === 'lowToHigh'">
+            <a class="dropdown-item" data-sort-order="price-low-to-high" (click)="onClickSortdp('lowToHigh')">Price: Low
+              to High</a>
+          </li>
+          <li [class.active]="prodSortKey === 'highToLow'">
+            <a class="dropdown-item" data-sort-order="price-high-to-low" (click)="onClickSortdp('highToLow')">Price:
+              High to Low</a>
+          </li>
         </ul>
       </div>
 

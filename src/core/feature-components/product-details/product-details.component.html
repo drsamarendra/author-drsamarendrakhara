@@ -53,6 +53,7 @@
                   <li><strong>Author:</strong> {{ product?.author }}</li>
                   <li><strong>Edition:</strong> Hardcover, 1st Edition</li>
                   <li><strong>Language:</strong> বাংলা</li>
+                  <li><strong>Published Date:</strong> {{ product?.publishDate || '2023' | date:'mediumDate' }}</li>
                   <li><strong>Offer:</strong> <span class="badge bg-warning text-dark">Bank Offer</span></li>
                 </ul>
               </div>

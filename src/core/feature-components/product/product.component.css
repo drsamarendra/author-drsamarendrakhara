@@ -156,3 +156,17 @@
   padding-right: 6px;
   margin-right: 6px
 }
+.dropdown-item {
+  cursor: pointer;
+}
+
+.dropdown-menu .active {
+  background-color: #e9ecef;
+  color: #000;
+  font-weight: bold;
+}
+
+
+.dropdown-menu .active .dropdown-item {
+  color: #0d6efd;
+}

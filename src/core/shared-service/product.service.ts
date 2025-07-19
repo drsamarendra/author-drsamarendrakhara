@@ -131,6 +131,8 @@ export class ProductService {
       id: product.id,
       title: product.title,
       author: product.author,
+      price: product.price,
+      publishDate: product.publishDate,
       imageUrls: product.productPageDeatils.imageUrls,
       description: product.productPageDeatils.description,
       alt: product.productPageDeatils.alt || 'No image available'
