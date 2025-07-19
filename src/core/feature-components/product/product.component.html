@@ -1,36 +1,45 @@
 <div class="container my-5 px-2 px-sm-3">
   <!-- Banner Section -->
-  <div class="product-banner mb-4 p-3 p-sm-4 d-flex flex-column flex-md-row align-items-center justify-content-between rounded shadow-sm position-relative overflow-hidden">
-    <div class="banner-content z-index-2 text-center text-md-start mb-2 mb-md-0 w-100">
-      <h2 class="mb-2 text-primary font-weight-bold fs-4 fs-md-2">Explore Books by Dr. Samarendra Khara</h2>
-      <p class="mb-0 text-dark lead fs-6 fs-md-5">Discover insightful reads and new releases.<br>Find your next favorite book today!</p>
+  <section
+    class="product-banner mb-4 p-3 p-sm-4 d-flex flex-column flex-md-row align-items-center justify-content-between rounded">
+    <div class="banner-content text-center text-md-start">
+      <h4 class="display-4">Explore Books by Dr. Samarendra Khara</h4>
+      <p class="lead">Discover insightful reads and new releases.<br>Find your next favorite book today!</p>
     </div>
-    <img src="assets/banner-books.png" alt="Books Banner" class="d-md-block banner-img-animated z-index-2 ms-md-4" style="max-width:140px; height:auto;">
-    <div class="banner-bg"></div>
-    <!-- Decorative SVG Wave -->
+    <img src="assets/banner-books.png" alt="Books Banner" class="d-md-block banner-img-animated ms-md-4">
     <svg class="banner-wave" viewBox="0 0 500 60" preserveAspectRatio="none">
       <path d="M0,30 Q250,80 500,30 L500,60 L0,60 Z" style="fill:#e3f0ff;opacity:0.7;"></path>
       <path d="M0,40 Q250,90 500,40 L500,60 L0,60 Z" style="fill:#b6d4fe;opacity:0.4;"></path>
     </svg>
-    <div class="banner-gradient"></div>
-  </div>
+  </section>
 
-  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
-    <div class="mb-3 mb-md-0 w-100 w-md-auto">
-      <div class="search-box position-relative">
-        <input type="text" class="form-control search-input pl-5" placeholder="Search books..." [(ngModel)]="searchText" (input)="filterProducts()" aria-label="Search books" />
-        <span class="search-icon position-absolute">
-          <i class="fas fa-search"></i>
-        </span>
+  <div class="filter-sort-bar d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+    <div class="search-bar d-flex flex-grow-1 me-md-3 mb-md-0">
+      <input class="form-control me-2" type="search" placeholder="Search books..." aria-label="Search books"
+        id="productSearchInput" [(ngModel)]="searchText" (input)="filterProducts()">
+      <!-- <i class="search-icon bi bi-search"></i> -->
+
+      <div class="dropdown d-flex mb-md-0">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="sortDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-sort-numeric-down me-2"></i>
+          <!-- Sort By: <span id="currentSortOrder">Newest Arrivals</span> -->
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortDropdown">
+          <li><a class="dropdown-item" data-sort-order="newest-arrivals" (click)="onClickSortdp('newest')">Newest
+              Arrivals</a></li>
+          <li><a class="dropdown-item" data-sort-order="price-low-to-high" (click)="onClickSortdp('lowToHigh')">Price:
+              Low to High</a></li>
+          <li><a class="dropdown-item" data-sort-order="price-high-to-low" (click)="onClickSortdp('highToLow')">Price:
+              High to Low</a></li>
+        </ul>
       </div>
-    </div>
-    <div class="mt-2 mt-md-0">
-      <button type="button" *ngIf="!isGridView" class="btn btn-outline-primary mr-2 mb-2 mb-md-0" [class.active]="isGridView" (click)="isGridView = true" aria-label="Grid view">
-        <i class="fas fa-th" aria-hidden="true"></i> Grid
-      </button>
-      <button type="button" *ngIf="isGridView" class="btn btn-outline-secondary mb-2 mb-md-0" [class.active]="!isGridView" (click)="isGridView = false" aria-label="List view">
-        <i class="fas fa-list" aria-hidden="true"></i> List
-      </button>
+
+      <div class="view-toggle">
+        <button class="btn btn-outline-primary" [id]="isGridView ? 'listViewBtn' : 'gridViewBtn'"
+          [title]="isGridView ? 'List View' :'Grid View'" (click)="toggleView()">
+          <i [ngClass]="isGridView ? 'bi bi-list-ul' : 'bi bi-grid'"></i></button>
+      </div>
     </div>
   </div>
 
@@ -42,14 +51,23 @@
           <div class="img-gradient-wrapper-2">
             <img [src]="book.imageUrl" class="card-img-top rounded-top product-img-2" alt="Book Cover">
             <div class="img-gradient-2"></div>
-            <span class="badge bg-primary text-white position-absolute top-0 end-0 m-2 px-3 py-2 shadow-sm badge-book">Book</span>
+            <span
+              class="badge bg-primary text-white position-absolute top-0 end-0 m-2 px-3 py-2 shadow-sm badge-book">Book</span>
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-primary font-weight-bold mb-2">{{ book.title }}</h5>
             <p class="card-text text-muted mb-3 min-h-48">{{ book.description }}</p>
-            <div class="mt-auto d-flex align-items-center">
-              <img src="assets/avatar.png" width="32" height="32" class="rounded-circle mr-2 border border-2 border-light shadow-sm" alt="Author" *ngIf="book.author">
-              <span class="badge bg-info text-dark px-2 py-1">{{ book.author }}</span>
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-info text-dark px-2 py-1">{{ book.author }}</span>
+                <h6 class="text-success fw-bold m-0 fs-5">
+                  ₹{{ book.price | number:'1.2-2' }}
+                </h6>
+              </div>
+              <p class="text-muted small mb-3">Published: {{ book.publishDate | date:'mediumDate' }}</p>
+              <button class="btn btn-outline-primary w-100 mt-2" (click)="goToDetails(book)">
+                View Details
+              </button>
             </div>
           </div>
         </div>
@@ -61,50 +79,35 @@
   <div *ngIf="!isGridView" class="container my-5">
     <div *ngFor="let book of workerProductList" class="card mb-4 shadow-sm border list-style-card">
       <div class="row no-gutters align-items-center flex-wrap flex-md-nowrap">
-        <!-- Product Image -->
         <div class="col-12 col-sm-auto p-3 d-flex justify-content-center align-items-center">
           <div (click)="goToDetails(book)" style="cursor:pointer;">
-            <img [src]="book.imageUrl" [alt]="book.alt" class="list-book-img img-fluid mx-auto d-block">
+            <img [src]="book.imageUrl" [alt]="book.alt || book.title + ' Cover'"
+              class="list-book-img img-fluid mx-auto d-block">
           </div>
         </div>
-        <!-- Product Details -->
         <div class="col-12 col-sm px-0">
           <div class="card-body py-3 px-2 text-center text-sm-start">
-            <div class="d-flex align-items-center mb-2 flex-wrap justify-content-center justify-content-sm-start">
-              <!-- <span class="badge bg-success text-white mr-2" style="font-size:0.95rem;">
-                <i class="fas fa-star"></i> 4.6
-              </span>
-              <span class="text-muted small">5,216 Ratings & 333 Reviews</span>
-              <span class="ml-2 badge badge-light border text-secondary" style="font-size:0.8rem;">Sponsored</span> -->
-            </div>
-            <a (click)="goToDetails(book)" class="h5 mb-1 d-block text-dark font-weight-bold" style="cursor:pointer;">{{ book.title }}</a>
+            <a (click)="goToDetails(book)" class="h5 mb-1 d-block text-primary font-weight-bold"
+              style="cursor:pointer;">{{ book.title }}</a>
             <div class="mb-2 text-muted small">{{ book.author }}</div>
-            <ul class="mb-2 pl-3 small text-secondary list-disc text-start mx-auto mx-sm-0" style="display:inline-block;">
+
+            <div class="mb-2 text-muted small">Published: {{ book.publishDate | date:'mediumDate' }}</div>
+
+            <ul class="mb-2 pl-3 small text-secondary list-disc text-start mx-auto mx-sm-0"
+              style="display:inline-block;">
               <li *ngIf="book.description">{{ book.description }}</li>
               <li>Hardcover, 1st Edition</li>
             </ul>
-            <div class="mb-1">
-              <!-- <span class="badge bg-warning text-dark" style="font-size:0.85rem;">Bank Offer</span> -->
-            </div>
-            <div class="form-check mt-2">
-              <!-- <input class="form-check-input" type="checkbox" id="compare{{book.id}}">
-              <label class="form-check-label small text-muted" for="compare{{book.id}}">
-                Add to Compare
-              </label> -->
-            </div>
           </div>
         </div>
-        <!-- Price & Actions -->
-        <div class="col-12 pricing-area col-sm-auto pr-4 pl-0 text-right d-flex flex-column justify-content-center align-items-end align-items-sm-end align-items-center mt-2 mt-sm-0">
+        <div
+          class="col-12 pricing-area col-sm-auto pr-4 pl-0 text-right d-flex flex-column justify-content-center align-items-end align-items-sm-end align-items-center mt-2 mt-sm-0">
           <div class="mb-2 text-center text-sm-end w-100">
-            <span class="h4 text-dark font-weight-bold">&#8377;{{ book.price || '1,499' }}</span>
-            <!-- <span class="text-muted small ml-2" style="text-decoration:line-through;">&#8377;{{ book.oldPrice || '1,999' }}</span>
-            <span class="text-success small ml-1">{{ book.discount || '25% off' }}</span> -->
-            <!-- <img src="assets/assured.png" alt="Assured" style="height:22px;margin-left:6px;" *ngIf="true"> -->
+            <span class="h4 text-success font-weight-bold">&#8377;{{ book.price | number:'1.2-2' }}</span>
           </div>
-          <!-- <div class="text-success small mb-1">Upto &#8377;500 Off on Exchange</div> -->
-          <div class="w-100">
-            <button class="btn btn-sm btn-outline-primary mt-2 w-100 w-sm-auto" (click)="goToDetails(book)">View Details</button>
+          <div class="w-100 d-flex flex-column align-items-sm-end">
+            <button class="btn btn-sm btn-outline-primary" (click)="goToDetails(book)">View
+              Details</button>
           </div>
         </div>
       </div>

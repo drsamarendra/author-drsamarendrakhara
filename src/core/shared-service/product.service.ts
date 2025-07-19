@@ -65,20 +65,21 @@ export class ProductService {
     this.carouselDetails = formatted;
   }
 
-  public handleListDetails(): Observable<any[]> {
+  public handleListDetails(prodSortkey: "newest" | "lowToHigh" | "highToLow"): Observable<any[]> {
     if (this.listDetails.length > 0) {
+      this.formatListPage(prodSortkey);
       return of(this.listDetails);
     }
 
     if (!this.listDetails.length && this.productDetailsLoaded) {
-      this.formatListPage();
+      this.formatListPage(prodSortkey);
       return of(this.listDetails);
     }
 
     return this.getProductDetilsList().pipe(
       map(() => {
         if (this.listDetails.length === 0) {
-          this.formatListPage();
+          this.formatListPage(prodSortkey);
         }
         return this.listDetails;
       })
@@ -86,17 +87,31 @@ export class ProductService {
   }
 
 
-  private formatListPage() {
-    const formatted = this.productList.map((item: any) => {
-      return {
-        id: item.id,
-        title: item.title,
-        author: item.author,
-        imageUrl: item.listPageDetails.imageUrl,
-        description: item.listPageDetails.description,
-        alt: item.listPageDetails.alt || 'No image available'
-      };
-    });
+  private formatListPage(prodSortkey: "newest" | "lowToHigh" | "highToLow") {
+    const formatted = this.productList
+      .sort((a, b) => {
+        if ("newest" == prodSortkey) { // Descending (newest first)
+          const dateA = new Date(a.publishDate);
+          const dateB = new Date(b.publishDate);
+          return dateB.getTime() - dateA.getTime();
+        } else if ("lowToHigh" == prodSortkey) { // Low to High
+          return a.price - b.price;
+        } else { // High to Low
+          return b.price - a.price;
+        }
+      })
+      .map((item: any) => {
+        return {
+          id: item.id,
+          title: item.title,
+          author: item.author,
+          price: item.price,
+          publishDate: item.publishDate,
+          imageUrl: item.listPageDetails.imageUrl,
+          description: item.listPageDetails.description,
+          alt: item.listPageDetails.alt || 'No image available'
+        };
+      });
     this.listDetails = formatted;
   }
 

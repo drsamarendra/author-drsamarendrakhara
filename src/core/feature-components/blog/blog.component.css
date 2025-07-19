@@ -1,6 +1,6 @@
 .blog-hero {
   padding: 60px 20px 40px;
-  background-color: #e9ecef;
+  background: linear-gradient(90deg, #e3f0ff 60%, #f8fbff 100%);
   margin-bottom: 30px;
 }
 

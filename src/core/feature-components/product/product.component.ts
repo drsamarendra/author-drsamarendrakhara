@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   public searchText: string = '';
   public constProductList: any[] = [];
   public workerProductList: any[] = [];
+  public prodSortKey: any = "newest"; //newest/lowToHigh/highToLow
 
 
   constructor(
@@ -23,7 +24,14 @@ export class ProductComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.productSubscription = this.productService.handleListDetails().subscribe(
+    const viewOption = localStorage.getItem("viewOpsKey") || "list";
+    this.isGridView = viewOption == "grid";
+    this.prodSortKey = localStorage.getItem("prodSortKey") || "newest"; 
+    this.getProductList();
+  }
+
+  private getProductList() {
+    this.productSubscription = this.productService.handleListDetails(this.prodSortKey).subscribe(
       response => {
         this.constProductList = response;
         this.workerProductList = response.map((obj: any) => ({ ...obj }));
@@ -32,13 +40,14 @@ export class ProductComponent implements OnInit, OnDestroy {
     );
   }
 
-
   public filterProducts(): void {
     this.workerProductList = this.getProducts()
   }
 
   public toggleView(): void {
     this.isGridView = !this.isGridView;
+    const viewOpt = this.isGridView ? "grid" :"list";
+    localStorage.setItem("viewOpsKey", viewOpt)
   }
 
   public getProducts() {
@@ -59,7 +68,11 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/product-details', navigationExtras);
   }
 
-
+  public onClickSortdp(selectSortKey: string) {
+    this.prodSortKey = selectSortKey;
+    localStorage.setItem("prodSortKey", this.prodSortKey)
+    this.getProductList();
+  }
 
   ngOnDestroy(): void {
     this.productSubscription?.unsubscribe();
