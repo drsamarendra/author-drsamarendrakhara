@@ -20,9 +20,9 @@ export class BlogService {
     );
   }
 
-  public handleBlogList(): Observable<any[]> {
+  public handleBlogList(sortOrder: 'newest' | 'oldest'): Observable<any[]> {
     if (this.blogList.length > 0) {
-      return of(this.blogList);
+      return of(this.formatBlogData(sortOrder));
     }
 
     return this.getblogList().pipe(
@@ -30,30 +30,23 @@ export class BlogService {
         if (this.blogList.length === 0) {
           this.blogList = [];
         }
-        return this.blogList;
+        return this.formatBlogData(sortOrder);
       })
     );
   }
 
-  public getLatestPostList(): Observable<any[]> {
-    if (this.blogList.length > 0) {
-      return of(this.formatBlogData());
-    }
-
-    return this.getblogList().pipe(
-      map(() => {
-        if (this.blogList.length === 0) {
-          this.blogList = [];
-        }
-        return this.formatBlogData();
-      })
-    );
-  }
-
-  private formatBlogData() {
+  private formatBlogData(sortOrder: 'newest' | 'oldest') {
     return this.blogList
       .filter((item: any) => item.isDisplayFrontPage)
-      .sort((a: any, b: any) => a.data - b.data);
+      .sort((a: any, b: any) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        if ("newest" == sortOrder) {
+          return dateB.getTime() - dateA.getTime(); // Descending (newest first)
+        } else {
+          return dateA.getTime() - dateB.getTime(); // Ascending (oldest first)
+        }
+      });
   }
 
   public isBlogPresnetById(id: number) {

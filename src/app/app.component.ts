@@ -7,12 +7,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-    console.log("hello app")
-    localStorage.removeItem('lang');
+    localStorage.removeItem("lang");
+    localStorage.removeItem("sortBlog")
   }
 
   ngOnDestroy(): void {
-    
+
   }
 
 }

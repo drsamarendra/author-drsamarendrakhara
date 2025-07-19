@@ -1,23 +1,36 @@
-<div class="container my-5">
-  <div class="text-center blog-wrapper mb-4">
-    <h2 class="display-4 font-weight-bold text-primary">Latest Blog Posts</h2>
-    <p class="lead text-muted">Insights, stories, and updates from Dr. Samarendra Khara</p>
+<div class="blog-body">
+  <section class="blog-hero">
+    <div class="container text-center">
+      <h1 class="display-4">Latest Blog Posts</h1>
+      <p class="lead">Insights, stories, and updates from Dr. Samarendra Khara</p>
+    </div>
+  </section>
+  <div class="container blog-search-section mt-4 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6 d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search blog posts by title or excerpt..."
+            aria-label="Search blog posts" id="blogSearchInput"
+            [(ngModel)]="searchBlogText" (input)="searchBlog()">
+          <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+          <button class="btn btn-outline-primary sortbtn" type="button" (click)="setSortOrder()">
+            <i [ngClass]="sortOrder=='newest' ? 'bi bi-sort-down me-2' : 'bi bi-sort-up me-2'"></i>
+          </button>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <!-- Blog Cards from blogList -->
-    <div class="col-md-4 mb-4" *ngFor="let blog of blogList">
-      <div class="card blog-card shadow-lg h-100 border-0">
-        <div class="img-gradient-wrapper">
-          <img [src]="blog.image" class="card-img-top rounded-top blog-img" alt="Blog Image">
-          <div class="img-gradient"></div>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title font-weight-bold text-secondary">{{ blog.title }}</h5>
-          <p class="card-text text-muted">{{ blog.summary }}</p>
-          <a (click)="onClickBlog(blog)" class="btn btn-outline-primary btn-animated">Read More</a>
+  <div class="container blog-posts-grid">
+    <div class="row" id="blogPostsContainer">
+      <div class="col-md-6 col-lg-4 mb-4 blog-post-card-item" *ngFor="let blog of blogList">
+        <div class="card blog-post-card">
+          <img [src]="blog.image" class="card-img-top" alt="Mango Heritage">
+          <div class="card-body">
+            <h5 class="card-title">{{ blog.title }}</h5>
+            <p class="card-text">{{ blog.summary }}</p>
+            <small class="text-muted">Published: {{ blog.date | date:'mediumDate' }}</small><a
+              (click)="onClickBlog(blog)" class="btn btn-primary">Read More</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

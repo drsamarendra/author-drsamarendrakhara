@@ -24,7 +24,7 @@
           <h1 class="display-5 fw-bold text-primary mb-2">{{ blog?.title }}</h1>
           <div class="mb-3 text-muted small">
             <i class="fas fa-user"></i> {{ blog?.author }} &nbsp;|&nbsp;
-            <i class="fas fa-calendar-alt"></i> {{ blog?.date || '2024-01-01' }}
+            <i class="fas fa-calendar-alt"></i> {{ blog?.date || '2024-01-01' | date:'mediumDate'  }}
           </div>
         </div>
         <img *ngIf="blog?.image" [src]="blog.image" alt="Blog Image" class="img-fluid rounded shadow mb-4 w-100">

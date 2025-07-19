@@ -9,8 +9,11 @@ import { BlogService } from '../../shared-service/blog.service';
 })
 export class BlogComponent implements OnInit, OnDestroy {
 
+  public constBlogList: any[] = [];
   public blogList: any[] = [];
+  public sortOrder: any = '';
   private blogServiceSubscription: any;
+  public searchBlogText: string = "";
 
   constructor(
     private blogService: BlogService,
@@ -18,9 +21,16 @@ export class BlogComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.blogServiceSubscription = this.blogService.handleBlogList().subscribe(
+    this.sortOrder = localStorage.getItem("sortBlog") || 'newest'
+    this.fetchBlogList();
+  }
+
+  private fetchBlogList() {
+    localStorage.setItem("sortBlog", this.sortOrder);
+    this.blogServiceSubscription = this.blogService.handleBlogList(this.sortOrder).subscribe(
       response => {
-        this.blogList = response;
+        this.constBlogList = response;
+        this.blogList = response.map((obj: any) => ({ ...obj }));
       });
   }
 
@@ -31,6 +41,25 @@ export class BlogComponent implements OnInit, OnDestroy {
       }
     };
     this.router.navigateByUrl('/blog-details', navigationExtras);
+  }
+
+  public setSortOrder() {
+    this.sortOrder = (this.sortOrder == "newest") ? "oldest" : "newest";
+    this.fetchBlogList();
+
+  }
+
+  public searchBlog() {
+    this.blogList = this.getFilterBlog();
+  }
+
+  public getFilterBlog() {
+    if (!this.searchBlogText) {
+      return this.constBlogList;
+    }
+    return this.constBlogList.filter(blog =>
+      JSON.stringify(blog).toLowerCase().includes(this.searchBlogText)
+    );
   }
 
   ngOnDestroy(): void {
