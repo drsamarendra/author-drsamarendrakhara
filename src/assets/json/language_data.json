@@ -7,20 +7,20 @@
             "description":"ড. খাঁড়া হুগলি জেলার গরলগাছা গ্রামের ভূমিপুত্র এবং বর্তমানে পশ্চিমবঙ্গ সরকারের যুগ্ম উদ্যানপালন অধিকর্তা। তাঁর লেখনী ও কৃষি গবেষণায় অসাধারণ অবদান রয়েছে।"
         },
         "aboutAuthor":{
-            "description":"ড. খাঁড়া প্রথম শ্রেণীতে কৃষি স্নাতক এবং উদ্যান বিজ্ঞান বিষয়ে প্রথম শ্রেণীতে প্রথম স্থান অধিকার করে স্নাতকোত্তর পাশ করেন। তিনি ভারতীয় কৃষি গবেষণা ইনস্টিটিউট থেকে জুনিয়র ফেলোশিপ এবং হর্টিকালচার সোসাইটি অফ ইন্ডিয়া থেকে সুবর্ণ জয়ন্তী সন্মান লাভ করেন।"
+            "description":"ড. খাঁড়া বিধান চন্দ্র কৃষি বিশ্ববিদ্যালয় থেকে প্রথম শ্রেণীতে কৃষি স্নাতক হয়ে উদ্যান বিজ্ঞান বিষয়কে বিশেষত্ব করে 'প্রথম শ্রেণীতে প্রথম' হয়ে স্নাতকোত্তর পাশ করেন। বিধানচন্দ্র কৃষি বিশ্ববিদ্যালয় বৃত্তি লাভ করেন। কলকাতা বিশ্ববিদ্যালয়ের রেট (Research Eligibility Test) শংসাপত্র প্রাপ্ত, আমের ফল চয়নোত্তর বিষয়ে গবেষণার করে Ph.D প্রাপ্ত।"
         },
         "achievements":{
             "achievement1":"জাতীয় ও স্থানীয় বিভিন্ন পুরস্কারে সম্মানিত",
-            "achievement2":"আম ও লিচু প্রদর্শনী ও প্রতিযোগিতায় আয়োজক ও বিচারক",
+            "achievement2":"ফুল,আম ও লিচু প্রদর্শনী ও প্রতিযোগিতায় আয়োজক ও বিচারক",
             "achievement3":"পরিবেশ ও উদ্যানবিজ্ঞানে উল্লেখযোগ্য অবদান",
             "achievement4":"আকাশবাণী ও দূরদর্শনে বিশেষজ্ঞ বক্তা",
-            "achievement5":"২০০টির বেশি কৃষি ও সমাজ উন্নয়নমূলক লেখা বিভিন্ন পত্রিকায় প্রকাশিত"
+            "achievement5":"৪০০টির বেশি কৃষি ও সমাজ উন্নয়নমূলক লেখা বিভিন্ন পত্রিকায় প্রকাশিত"
         },
         "awards":{
             "award1":"সালাম বেঙ্গল সম্মান, ২০০৯",
             "award2":"সুবর্ণ জয়ন্তী সম্মান, হর্টিকালচার সোসাইটি অফ ইন্ডিয়া",
             "award3":"জহরলাল নেহেরু স্মৃতি পুরস্কার",
-            "award4":"Ph.D. গবেষণা: আম ফল চয়নোত্তর বিষয়"
+            "award4":"ভারতীয় কৃষি অনুসন্ধান প্রতিষ্ঠান, পুষা, নতুন দিল্লী থেকে উদ্যানপালনে 'জুনিয়র ফেলোশিপ' লাভ"
         }
 
     },
@@ -29,23 +29,23 @@
         "basicInput":{
             "heading":"Horticulturist, Author & Social Worker",
             "subHeading":"Planting Knowledge, Harvesting Success.",
-            "description":"Dr. Khara is a native of Garlgacha village in the Hooghly district and is currently serving as the Joint Director of Horticulture under the Government of West Bengal. He has made remarkable contributions through his writings and agricultural research."
+            "description":"Dr. Khara is a native of Garlgacha village in the Hooghly district and is currently serving as the Joint Director of Horticulture under the Government of West Bengal. He has made remarkable contributions through his writings and horticulture research."
         },
         "aboutAuthor":{
-            "description":"Dr. Khanra graduated with a first-class degree in Agriculture and secured first place with a first-class in Horticulture for his postgraduate studies. He received a Junior Fellowship from the Indian Agricultural Research Institute and the Golden Jubilee Honour from the Horticultural Society of India."
+            "description":"Dr. Khara graduated in Horticulture with First Class from Bidhan Chandra Krishi Viswavidyalaya and completed his post-graduation with specialization in Horticulture, securing First Class First. He was awarded a scholarship by Bidhan Chandra Krishi Viswavidyalaya. He qualified the Research Eligibility Test (RET) of the University of Calcutta and obtained his Ph.D. through research on post-harvest management of mango."
         },
         "achievements":{
             "achievement1":"Awarded various <strong>national and local accolades.</strong>",
-            "achievement2":"<strong>Organizer and Judge</strong> at Mango and Litchi exhibitions and competitions.",
+            "achievement2":"<strong>Organizer and Judge</strong> at Flower, Mango and Litchi exhibitions and competitions.",
             "achievement3":"<strong>Significant contribution</strong> to environmental and horticultural science.",
             "achievement4":"<strong>Expert speaker</strong> on Akashvani (All India Radio) and Doordarshan (national television).",
-            "achievement5":"<strong>More than 200</strong> articles on agriculture and social development published in various journals."
+            "achievement5":"<strong>More than 400</strong> articles on agriculture and social development published in various journals."
         },
         "awards":{
             "award1": "<strong>Salam Bengal Honour, 2009</strong>",
             "award2": "<strong>Golden Jubilee Honour, Horticultural Society of India</strong>",
             "award3": "<strong>Jawaharlal Nehru Memorial Award</strong>",
-            "award4": "<strong>Ph.D. Research: Post-harvest Aspects of Mango</strong>"
+            "award4": "<strong>Received a 'Junior Fellowship' in Horticulture from the Indian Agricultural Research Institute (IARI), Pusa, New Delhi</strong>"
         }
 
     }
