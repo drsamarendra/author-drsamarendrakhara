@@ -123,3 +123,8 @@
     align-items: flex-start !important;
   }
 }
+.contact-info {
+    white-space: nowrap; /* Ensures content stays on a single line */
+    overflow: hidden; /* Hides any overflowing content */
+    text-overflow: ellipsis; /* Adds an ellipsis (...) if content overflows */
+  }
