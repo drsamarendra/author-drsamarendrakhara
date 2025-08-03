@@ -38,13 +38,10 @@
 
               <div class="mb-3">
                 <span class="h3 text-dark font-weight-bold">&#8377;{{ product?.price || '1,499' }}</span>
-                <span class="text-muted small ms-2 text-decoration-line-through">&#8377;{{ product?.oldPrice || '1,999' }}</span>
-                <span class="text-success small ms-1">{{ product?.discount || '25% off' }}</span>
               </div>
 
               <div class="mb-3">
                 <span class="badge bg-success text-white px-2 py-1 me-2"><i class="fas fa-star"></i> 4.6</span>
-                <span class="text-muted small">5,216 Ratings & 333 Reviews</span>
               </div>
 
               <div class="mb-4">
@@ -54,7 +51,6 @@
                   <li><strong>Edition:</strong> Hardcover, 1st Edition</li>
                   <li><strong>Language:</strong> বাংলা</li>
                   <li><strong>Published Date:</strong> {{ product?.publishDate || '2023' | date:'mediumDate' }}</li>
-                  <li><strong>Offer:</strong> <span class="badge bg-warning text-dark">Bank Offer</span></li>
                 </ul>
               </div>
 
