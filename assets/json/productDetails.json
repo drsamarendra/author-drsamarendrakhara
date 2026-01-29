@@ -92,5 +92,29 @@
                 "assets/books/Adhunik_Paddhadite_Aam/2Y8A6986.JPG"
             ]
         }
+    },
+    {
+        "id": 5,
+        "title": "রূপালী শস্য ইলিশ",
+        "author": "Dr. Samarendra Nath Khara",
+        "publishDate": "2026-01-23",
+        "price": 200,
+        "carouselDetails": {
+            "order": 5,
+            "isDisplayed": true,
+            "imageUrl": "assets/books/Ilish/ilish2.jpeg",
+            "alt": "Novels book1"
+        },
+        "listPageDetails": {
+            "imageUrl": "assets/books/Ilish/Ilish0.jpeg"
+        },
+        "productPageDeatils": {
+            "imageUrls": [
+                "assets/books/Ilish/Ilish0.jpeg",
+                "assets/books/Ilish/ilish.jpeg",
+                "assets/books/Ilish/ilish2.jpeg"
+            ]
+        }
     }
+
 ]
